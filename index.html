@@ -1,1881 +1,1589 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hypertrophy Engine - Autoregulated Planner</title>
+    <meta charset="UTF-8">
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-  <!-- Lucide Icons CDN -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <meta
+        name="description"
+        content="Hypertrophy Engine — planejamento inteligente para hipertrofia, treino e evolução."
+    >
 
-  <style>
-    /* Ocultar barra de rolagem mantendo funcionalidade */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
+    <meta name="theme-color" content="#020617">
 
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-  </style>
+    <title>Hypertrophy Engine | Hipertrofia Inteligente</title>
+
+    <style>
+        :root {
+            --bg: #020617;
+            --bg-soft: #07111f;
+            --card: #0b1627;
+            --card-hover: #101e31;
+
+            --primary: #10b981;
+            --primary-light: #34d399;
+            --primary-dark: #059669;
+
+            --text: #f8fafc;
+            --text-soft: #cbd5e1;
+            --text-muted: #94a3b8;
+
+            --border: rgba(148, 163, 184, .14);
+
+            --radius: 20px;
+            --max-width: 1180px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 50% -10%,
+                    rgba(16, 185, 129, .13),
+                    transparent 38%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(
+                calc(100% - 40px),
+                var(--max-width)
+            );
+
+            margin: 0 auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            z-index: 10;
+
+            border-bottom: 1px solid rgba(255,255,255,.04);
+        }
+
+        .nav {
+            min-height: 76px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-weight: 800;
+            letter-spacing: -.02em;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    #047857
+                );
+
+            color: #00150e;
+
+            font-weight: 900;
+        }
+
+        .brand span:last-child {
+            font-size: 16px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+
+            color: var(--text-soft);
+
+            font-size: 14px;
+        }
+
+        .nav-links a {
+            transition: color .2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 50px;
+            padding: 0 23px;
+
+            border-radius: 12px;
+
+            font-weight: 800;
+            font-size: 15px;
+
+            transition:
+                transform .2s ease,
+                background .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #00150e;
+
+            box-shadow:
+                0 10px 35px
+                rgba(16,185,129,.18);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text-soft);
+        }
+
+        .btn-outline:hover {
+            border-color: rgba(52,211,153,.4);
+            color: var(--primary-light);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 760px;
+
+            display: flex;
+            align-items: center;
+
+            padding:
+                150px 0
+                90px;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 550px;
+            height: 550px;
+
+            left: -200px;
+            top: 100px;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(16,185,129,.11),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.05fr)
+                minmax(0, .95fr);
+
+            align-items: center;
+
+            gap: 70px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+
+            padding: 7px 12px;
+
+            border:
+                1px solid
+                rgba(52,211,153,.2);
+
+            border-radius: 999px;
+
+            background:
+                rgba(16,185,129,.07);
+
+            color: var(--primary-light);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: .12em;
+        }
+
+        .hero h1 {
+            margin-top: 20px;
+
+            max-width: 760px;
+
+            font-size:
+                clamp(42px, 6vw, 72px);
+
+            line-height: 1.02;
+
+            letter-spacing: -.055em;
+        }
+
+        .hero h1 span {
+            color: var(--primary-light);
+        }
+
+        .hero-description {
+            max-width: 650px;
+
+            margin-top: 25px;
+
+            color: var(--text-soft);
+
+            font-size: 18px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            margin-top: 34px;
+        }
+
+        .hero-note {
+            margin-top: 22px;
+
+            color: var(--text-muted);
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           VISUAL CARD
+        ========================= */
+
+        .engine-card {
+            position: relative;
+
+            padding: 28px;
+
+            border:
+                1px solid
+                rgba(148,163,184,.13);
+
+            border-radius: 26px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(15,31,50,.96),
+                    rgba(4,13,25,.96)
+                );
+
+            box-shadow:
+                0 35px 80px
+                rgba(0,0,0,.35);
+        }
+
+        .engine-card::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -1px;
+
+            border-radius: 26px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(52,211,153,.2),
+                    transparent 40%,
+                    transparent 70%,
+                    rgba(52,211,153,.06)
+                );
+
+            z-index: -1;
+        }
+
+        .engine-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 28px;
+        }
+
+        .engine-title {
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .engine-version {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .status {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            background:
+                rgba(16,185,129,.1);
+
+            color: var(--primary-light);
+        }
+
+        .metric {
+            padding: 18px;
+
+            border:
+                1px solid
+                rgba(148,163,184,.1);
+
+            border-radius: 15px;
+
+            background:
+                rgba(2,6,23,.55);
+
+            margin-bottom: 12px;
+        }
+
+        .metric-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .metric-value {
+            font-weight: 800;
+            color: var(--primary-light);
+        }
+
+        .progress {
+            height: 7px;
+
+            border-radius: 999px;
+
+            background: #172235;
+
+            overflow: hidden;
+        }
+
+        .progress span {
+            display: block;
+
+            height: 100%;
+            width: 82%;
+
+            border-radius: inherit;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary-dark),
+                    var(--primary-light)
+                );
+        }
+
+        .metric-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+
+            margin-top: 12px;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            max-width: 680px;
+
+            margin-bottom: 48px;
+        }
+
+        .section-label {
+            color: var(--primary-light);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: .12em;
+        }
+
+        .section-heading h2 {
+            margin-top: 10px;
+
+            font-size:
+                clamp(32px, 5vw, 48px);
+
+            line-height: 1.08;
+
+            letter-spacing: -.04em;
+        }
+
+        .section-heading p {
+            margin-top: 17px;
+
+            color: var(--text-muted);
+
+            font-size: 17px;
+        }
+
+        /* =========================
+           BENEFITS
+        ========================= */
+
+        .benefits {
+            background:
+                rgba(7,17,31,.65);
+
+            border-top:
+                1px solid rgba(255,255,255,.03);
+
+            border-bottom:
+                1px solid rgba(255,255,255,.03);
+        }
+
+        .cards {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .card {
+            padding: 28px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            background:
+                rgba(11,22,39,.7);
+
+            transition:
+                transform .2s ease,
+                border-color .2s ease,
+                background .2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+
+            border-color:
+                rgba(52,211,153,.22);
+
+            background:
+                var(--card-hover);
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 14px;
+
+            background:
+                rgba(16,185,129,.1);
+
+            color: var(--primary-light);
+
+            font-size: 20px;
+
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 9px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* =========================
+           HOW IT WORKS
+        ========================= */
+
+        .steps {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 22px;
+        }
+
+        .step {
+            position: relative;
+
+            padding: 28px;
+
+            border-left:
+                2px solid
+                rgba(16,185,129,.25);
+        }
+
+        .step-number {
+            color: var(--primary-light);
+
+            font-size: 13px;
+            font-weight: 900;
+
+            letter-spacing: .1em;
+        }
+
+        .step h3 {
+            margin-top: 10px;
+
+            font-size: 22px;
+        }
+
+        .step p {
+            margin-top: 8px;
+
+            color: var(--text-muted);
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: var(--bg-soft);
+        }
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns:
+                .85fr
+                1.15fr;
+
+            gap: 70px;
+
+            align-items: center;
+        }
+
+        .about-box {
+            min-height: 330px;
+
+            border-radius: 28px;
+
+            border:
+                1px solid var(--border);
+
+            background:
+                radial-gradient(
+                    circle at 30% 20%,
+                    rgba(16,185,129,.12),
+                    transparent 45%
+                ),
+                #06101d;
+
+            display: grid;
+            place-items: center;
+
+            padding: 40px;
+        }
+
+        .about-mark {
+            width: 110px;
+            height: 110px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    #047857
+                );
+
+            color: #00150e;
+
+            font-size: 46px;
+            font-weight: 900;
+
+            box-shadow:
+                0 25px 70px
+                rgba(16,185,129,.2);
+        }
+
+        .about-content h2 {
+            font-size:
+                clamp(32px, 5vw, 46px);
+
+            line-height: 1.08;
+
+            letter-spacing: -.04em;
+        }
+
+        .about-content p {
+            margin-top: 20px;
+
+            color: var(--text-muted);
+
+            font-size: 17px;
+        }
+
+        /* =========================
+           LOCATION
+        ========================= */
+
+        .location {
+            background:
+                rgba(7,17,31,.55);
+        }
+
+        .location-grid {
+            display: grid;
+
+            grid-template-columns:
+                .75fr
+                1.25fr;
+
+            gap: 25px;
+
+            align-items: stretch;
+        }
+
+        .location-info {
+            padding: 32px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 22px;
+
+            background:
+                rgba(11,22,39,.75);
+        }
+
+        .location-info h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .address {
+            color: var(--text-soft);
+
+            font-size: 16px;
+
+            min-height: 50px;
+        }
+
+        .location-map {
+            min-height: 350px;
+
+            overflow: hidden;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 22px;
+
+            background: #0b1627;
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+
+            min-height: 350px;
+
+            border: 0;
+        }
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 110px 0;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 50% 100%,
+                    rgba(16,185,129,.12),
+                    transparent 55%
+                );
+        }
+
+        .cta h2 {
+            max-width: 800px;
+
+            margin: 0 auto;
+
+            font-size:
+                clamp(34px, 5vw, 58px);
+
+            line-height: 1.05;
+
+            letter-spacing: -.045em;
+        }
+
+        .cta p {
+            max-width: 620px;
+
+            margin: 20px auto 30px;
+
+            color: var(--text-muted);
+
+            font-size: 17px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 35px 0;
+
+            border-top:
+                1px solid var(--border);
+
+            color: var(--text-muted);
+
+            font-size: 13px;
+        }
+
+        .footer-content {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            gap: 20px;
+        }
+
+        .socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .socials a:hover {
+            color: var(--primary-light);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+
+                padding-top: 125px;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .location-grid {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .cards,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .about-box {
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .container {
+                width: min(
+                    calc(100% - 28px),
+                    var(--max-width)
+                );
+            }
+
+            section {
+                padding: 75px 0;
+            }
+
+            .hero {
+                padding:
+                    115px 0
+                    70px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+            }
+
+            .engine-card {
+                padding: 20px;
+            }
+
+            .metric-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen p-4 md:p-8">
 
-  <!-- HEADER BAR -->
-  <header class="max-w-7xl mx-auto mb-8 border-b border-slate-800 pb-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<body>
 
-    <div>
-      <div class="flex items-center gap-3 mb-1">
+    <!-- =========================================
+         HEADER
+    ========================================== -->
 
-        <div class="p-2 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-emerald-400">
-          <i data-lucide="dumbbell" class="w-6 h-6"></i>
-        </div>
+    <header class="header">
 
-        <h1 class="text-2xl font-bold tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
-          Hypertrophy Engine
-        </h1>
+        <div class="container nav">
 
-        <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-          v2.4 Autorregulada
-        </span>
+            <a href="#" class="brand">
 
-      </div>
+                <span class="brand-mark">
+                    H
+                </span>
 
-      <p class="text-sm text-slate-400">
-        Planejador de hipertrofia com monitoramento de fadiga sistêmica e progressão dinâmica.
-      </p>
-    </div>
+                <span
+                    data-v8="content.name"
+                >
+                    Hypertrophy Engine
+                </span>
 
-    <!-- SYSTEM DIAGNOSTICS -->
-    <div class="flex items-center gap-3 bg-slate-900/80 p-3 rounded-2xl border border-slate-800/80 backdrop-blur-sm">
+            </a>
 
-      <div class="flex flex-col text-right pr-3 border-r border-slate-800">
-        <span class="text-xs text-slate-400 font-medium">
-          Estresse Sistêmico
-        </span>
 
-        <span id="widgetFatigue" class="text-lg font-bold text-emerald-400">
-          --%
-        </span>
-      </div>
+            <nav class="nav-links">
 
-      <div class="flex flex-col text-left pl-1">
-        <span class="text-xs text-slate-400 font-medium">
-          Meta RPE
-        </span>
+                <a href="#beneficios">
+                    Benefícios
+                </a>
 
-        <span id="widgetRpe" class="text-lg font-bold text-sky-400">
-          @8.5
-        </span>
-      </div>
+                <a href="#como-funciona">
+                    Como funciona
+                </a>
 
-    </div>
+                <a href="#sobre">
+                    Sobre
+                </a>
 
-  </header>
+                <a href="#localizacao">
+                    Localização
+                </a>
 
-  <main class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
+            </nav>
 
-    <!-- LEFT COLUMN -->
-    <div class="lg:col-span-4 space-y-6">
 
-      <!-- MATRIZ DE AUTORREGULAÇÃO -->
-      <section class="bg-slate-900/90 rounded-2xl border border-slate-800 p-5 shadow-xl relative overflow-hidden">
-
-        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="flex items-center justify-between mb-4">
-
-          <div class="flex items-center gap-2">
-            <i data-lucide="sparkles" class="w-5 h-5 text-emerald-400"></i>
-
-            <h2 class="font-semibold text-slate-100">
-              Matriz de Autorregulação
-            </h2>
-          </div>
-
-          <button
-            id="btnDeload"
-            class="px-3 py-1 rounded-lg text-xs font-medium border transition-all bg-slate-800 text-slate-400 border-slate-700 hover:border-slate-600">
-            Deload: OFF
-          </button>
+            <a
+                href="#contato"
+                class="btn btn-primary"
+            >
+                Conheça
+            </a>
 
         </div>
 
-        <div class="space-y-4 text-sm">
+    </header>
 
-          <!-- READINESS -->
-          <div>
 
-            <div class="flex justify-between mb-1">
+    <!-- =========================================
+         HERO
+    ========================================== -->
 
-              <label class="text-slate-300 font-medium flex items-center gap-1.5">
-                <i data-lucide="activity" class="w-4 h-4 text-sky-400"></i>
-                Disposição (Readiness)
-              </label>
+    <main>
 
-              <span id="valReadiness" class="text-sky-400 font-semibold">
-                80%
-              </span>
+        <section class="hero">
 
-            </div>
+            <div class="container hero-grid">
 
-            <input
-              id="inputReadiness"
-              type="range"
-              min="20"
-              max="100"
-              value="80"
-              class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-sky-400">
+                <div>
 
-          </div>
+                    <span class="eyebrow">
+                        HIPERTROFIA INTELIGENTE
+                    </span>
 
-          <!-- SONO -->
-          <div>
 
-            <div class="flex justify-between mb-1">
+                    <h1
+                        data-v8="content.headline"
+                    >
+                        Treine melhor.
+                        <span>
+                            Evolua de verdade.
+                        </span>
+                    </h1>
 
-              <label class="text-slate-300 font-medium flex items-center gap-1.5">
-                <i data-lucide="clock" class="w-4 h-4 text-indigo-400"></i>
-                Horas de Sono
-              </label>
 
-              <span id="valSleep" class="text-indigo-400 font-semibold">
-                7.5 hrs
-              </span>
+                    <p
+                        class="hero-description"
+                        data-v8="content.description"
+                    >
+                        Planejamento inteligente para hipertrofia,
+                        com acompanhamento, organização e estratégias
+                        pensadas para sua evolução.
+                    </p>
 
-            </div>
 
-            <input
-              id="inputSleep"
-              type="range"
-              min="4"
-              max="10"
-              step="0.5"
-              value="7.5"
-              class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-indigo-400">
+                    <div class="hero-actions">
 
-          </div>
+                        <a
+                            href="#"
+                            data-v8="contact.whatsapp"
+                            class="btn btn-primary"
+                        >
+                            Falar pelo WhatsApp
+                        </a>
 
-          <!-- DOMS -->
-          <div>
 
-            <div class="flex justify-between mb-1">
+                        <a
+                            href="#como-funciona"
+                            class="btn btn-outline"
+                        >
+                            Como funciona
+                        </a>
 
-              <label class="text-slate-300 font-medium flex items-center gap-1.5">
-                <i data-lucide="flame" class="w-4 h-4 text-rose-400"></i>
-                Dor Muscular Tardia
-              </label>
+                    </div>
 
-              <span id="valSoreness" class="text-rose-400 font-semibold">
-                3/10
-              </span>
 
-            </div>
-
-            <input
-              id="inputSoreness"
-              type="range"
-              min="1"
-              max="10"
-              value="3"
-              class="w-full h-1.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-rose-400">
-
-          </div>
-
-        </div>
-
-        <!-- FEEDBACK -->
-        <div class="mt-5 p-3.5 bg-slate-950/60 rounded-xl border border-slate-800/80 text-xs text-slate-300 flex items-start gap-3">
-
-          <i
-            id="statusIcon"
-            data-lucide="shield-alert"
-            class="w-5 h-5 shrink-0 mt-0.5 text-emerald-400">
-          </i>
-
-          <div>
-
-            <span
-              id="statusTitle"
-              class="font-semibold block text-slate-200 mb-0.5">
-              Estado Anabólico Ideal
-            </span>
-
-            <p id="statusDesc">
-              Volume mantido em 100%. Recomendado foco em sobrecarga progressiva mantendo RPE 8-9.
-            </p>
-
-          </div>
-
-        </div>
-
-      </section>
-
-      <!-- SPLIT -->
-      <section class="bg-slate-900/90 rounded-2xl border border-slate-800 p-5 shadow-xl">
-
-        <div class="flex items-center gap-2 mb-4">
-
-          <i data-lucide="layers" class="w-5 h-5 text-indigo-400"></i>
-
-          <h2 class="font-semibold text-slate-100">
-            Divisão de Treino (Split)
-          </h2>
-
-        </div>
-
-        <div id="splitButtonsContainer" class="space-y-2.5">
-          <!-- Injetado via Javascript -->
-        </div>
-
-      </section>
-
-      <!-- VOLUME -->
-      <section class="bg-slate-900/90 rounded-2xl border border-slate-800 p-5 shadow-xl">
-
-        <div class="flex items-center justify-between mb-4">
-
-          <div class="flex items-center gap-2">
-
-            <i data-lucide="target" class="w-5 h-5 text-sky-400"></i>
-
-            <h2 class="font-semibold text-slate-100">
-              Volume Semanal Direct Sets
-            </h2>
-
-          </div>
-
-          <span class="text-xs text-slate-400">
-            Ideal: 10-20 Séries
-          </span>
-
-        </div>
-
-        <div
-          id="volumeBarsContainer"
-          class="space-y-2.5 max-h-[260px] overflow-y-auto pr-1 text-xs no-scrollbar">
-        </div>
-
-      </section>
-
-    </div>
-
-    <!-- RIGHT COLUMN -->
-    <div class="lg:col-span-8 space-y-6">
-
-      <!-- DAY NAVIGATION -->
-      <div
-        id="dayTabsContainer"
-        class="flex gap-2 overflow-x-auto pb-2 no-scrollbar">
-      </div>
-
-      <!-- WORKOUT PANEL -->
-      <section class="bg-slate-900/90 rounded-2xl border border-slate-800 p-6 shadow-xl relative">
-
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-slate-800 gap-4">
-
-          <div>
-
-            <div class="flex items-center gap-2 mb-1">
-
-              <h2
-                id="activeDayTitle"
-                class="text-xl font-bold text-slate-100">
-                --
-              </h2>
-
-              <span
-                id="restBadge"
-                class="hidden px-2.5 py-0.5 rounded-full text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/30">
-                Descanso
-              </span>
-
-            </div>
-
-            <p class="text-xs text-slate-400">
-              Grupos Foco:
-              <span
-                id="activeDayGroups"
-                class="text-slate-200">
-                --
-              </span>
-            </p>
-
-          </div>
-
-          <button
-            id="btnLogSession"
-            class="px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/10 transition-all">
-
-            <i data-lucide="check-circle-2" class="w-4 h-4"></i>
-
-            Concluir Sessão
-
-          </button>
-
-        </div>
-
-        <!-- EXERCISES -->
-        <div
-          id="workoutContent"
-          class="py-6 space-y-4">
-        </div>
-
-        <!-- TECHNICAL TIP -->
-        <div class="mt-4 pt-4 border-t border-slate-800 flex items-center gap-2 text-xs text-slate-400">
-
-          <i
-            data-lucide="info"
-            class="w-4 h-4 text-emerald-400 shrink-0">
-          </i>
-
-          <span>
-            Para máxima tensão mecânica, execute a fase excêntrica
-            (descida) em 2-3 segundos e trabalhe em amplitude completa.
-          </span>
-
-        </div>
-
-      </section>
-
-      <!-- HISTORY -->
-      <section
-        id="historySection"
-        class="hidden bg-slate-900/90 rounded-2xl border border-slate-800 p-5 shadow-xl">
-
-        <div class="flex items-center gap-2 mb-3">
-
-          <i data-lucide="trophy" class="w-5 h-5 text-amber-400"></i>
-
-          <h2 class="font-semibold text-slate-100">
-            Últimos Treinos Concluídos
-          </h2>
-
-        </div>
-
-        <div
-          id="historyGrid"
-          class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        </div>
-
-      </section>
-
-    </div>
-
-  </main>
-
-  <!-- =========================================================
-       HYPERTROPHY ENGINE
-       ========================================================= -->
-
-  <script>
-
-    /* =========================================================
-       ESTRUTURAS DE DADOS
-       ========================================================= */
-
-    const SPLIT_PROGRAMS = {
-
-      PULL_PUSH_LEGS: {
-
-        id: 'PULL_PUSH_LEGS',
-
-        name: 'Pull / Push / Legs (PPL)',
-
-        description:
-          'Frequência de 3 a 6 dias focada na sinergia dos movimentos de puxar, empurrar e pernas.',
-
-        recommendedDays: 6,
-
-        days: [
-
-          {
-            id: 'pull_a',
-            name: 'Pull A - Dorsais e Bíceps',
-            targetGroups: [
-              'Dorsal',
-              'Trapezio',
-              'Deltoide Posterior',
-              'Biceps'
-            ]
-          },
-
-          {
-            id: 'push_a',
-            name: 'Push A - Peitoral e Tríceps',
-            targetGroups: [
-              'Peitoral',
-              'Deltoide Anterior',
-              'Deltoide Lateral',
-              'Triceps'
-            ]
-          },
-
-          {
-            id: 'legs_a',
-            name: 'Legs A - Quadríceps Focus',
-            targetGroups: [
-              'Quadriceps',
-              'Isquiotibiais',
-              'Panturrilhas',
-              'Abdomen'
-            ]
-          },
-
-          {
-            id: 'pull_b',
-            name: 'Pull B - Upper Back & Braquial',
-            targetGroups: [
-              'Trapezio',
-              'Dorsal',
-              'Biceps',
-              'Braquial'
-            ]
-          },
-
-          {
-            id: 'push_b',
-            name: 'Push B - Ombros & Superior Peito',
-            targetGroups: [
-              'Deltoide Lateral',
-              'Superior Peito',
-              'Triceps'
-            ]
-          },
-
-          {
-            id: 'legs_b',
-            name: 'Legs B - Cadeia Posterior',
-            targetGroups: [
-              'Isquiotibiais',
-              'Gluteos',
-              'Quadriceps',
-              'Panturrilhas'
-            ]
-          },
-
-          {
-            id: 'rest_ppl',
-            name: 'Descanso Ativo',
-            isRest: true,
-            targetGroups: []
-          }
-
-        ]
-
-      },
-
-      UPPER_LOWER: {
-
-        id: 'UPPER_LOWER',
-
-        name: 'Upper / Lower Split',
-
-        description:
-          '4 dias focados na divisão de tronco e membros inferiores para alta produção de força.',
-
-        recommendedDays: 4,
-
-        days: [
-
-          {
-            id: 'upper_1',
-            name: 'Upper Body A (Força)',
-            targetGroups: [
-              'Peitoral',
-              'Dorsal',
-              'Ombros',
-              'Biceps',
-              'Triceps'
-            ]
-          },
-
-          {
-            id: 'lower_1',
-            name: 'Lower Body A (Agachamento)',
-            targetGroups: [
-              'Quadriceps',
-              'Gluteos',
-              'Panturrilhas',
-              'Abdomen'
-            ]
-          },
-
-          {
-            id: 'rest_ul1',
-            name: 'Descanso',
-            isRest: true,
-            targetGroups: []
-          },
-
-          {
-            id: 'upper_2',
-            name: 'Upper Body B (Hipertrofia)',
-            targetGroups: [
-              'Trapezio',
-              'Superior Peito',
-              'Deltoide Lateral',
-              'Biceps'
-            ]
-          },
-
-          {
-            id: 'lower_2',
-            name: 'Lower Body B (Stiff/RDL)',
-            targetGroups: [
-              'Isquiotibiais',
-              'Gluteos',
-              'Quadriceps',
-              'Panturrilhas'
-            ]
-          },
-
-          {
-            id: 'rest_ul2',
-            name: 'Descanso',
-            isRest: true,
-            targetGroups: []
-          },
-
-          {
-            id: 'rest_ul3',
-            name: 'Descanso',
-            isRest: true,
-            targetGroups: []
-          }
-
-        ]
-
-      }
-
-    };
-
-
-    /* =========================================================
-       DATABASE DE EXERCÍCIOS
-       ========================================================= */
-
-    const EXERCISE_DATABASE = {
-
-      'lat_pulldown': {
-        name: 'Puxada Alta Neutra',
-        group: 'Dorsal',
-        type: 'Isolamento/Máquina'
-      },
-
-      'barbell_row': {
-        name: 'Remada Curvada com Barra',
-        group: 'Trapezio',
-        type: 'Composto Pesado'
-      },
-
-      'face_pull': {
-        name: 'Face Pull na Corda',
-        group: 'Deltoide Posterior',
-        type: 'Isolamento'
-      },
-
-      'bicep_curl': {
-        name: 'Rosca Inclinada com Halteres',
-        group: 'Biceps',
-        type: 'Isolamento'
-      },
-
-      'hammer_curl': {
-        name: 'Rosca Martelo na Corda',
-        group: 'Braquial',
-        type: 'Isolamento'
-      },
-
-      'bench_press': {
-        name: 'Supino Reto com Barra',
-        group: 'Peitoral',
-        type: 'Composto Pesado'
-      },
-
-      'incline_db_press': {
-        name: 'Supino Inclinado c/ Halteres',
-        group: 'Superior Peito',
-        type: 'Composto'
-      },
-
-      'overhead_press': {
-        name: 'Desenvolvimento em Pé',
-        group: 'Deltoide Anterior',
-        type: 'Composto Pesado'
-      },
-
-      'lateral_raise': {
-        name: 'Elevação Lateral',
-        group: 'Deltoide Lateral',
-        type: 'Isolamento'
-      },
-
-      'tricep_pushdown': {
-        name: 'Tríceps Pulley Corda',
-        group: 'Triceps',
-        type: 'Isolamento'
-      },
-
-      'back_squat': {
-        name: 'Agachamento Livre',
-        group: 'Quadriceps',
-        type: 'Composto Pesado'
-      },
-
-      'leg_press': {
-        name: 'Leg Press 45°',
-        group: 'Quadriceps',
-        type: 'Máquina'
-      },
-
-      'romanian_deadlift': {
-        name: 'Stiff / RDL com Barra',
-        group: 'Isquiotibiais',
-        type: 'Composto Pesado'
-      },
-
-      'leg_curl': {
-        name: 'Mesa Flexora',
-        group: 'Isquiotibiais',
-        type: 'Isolamento'
-      },
-
-      'standing_calf_raise': {
-        name: 'Gêmeos em Pé',
-        group: 'Panturrilhas',
-        type: 'Isolamento'
-      },
-
-      'cable_crunch': {
-        name: 'Abdominal na Polia',
-        group: 'Abdomen',
-        type: 'Isolamento'
-      }
-
-    };
-
-
-    /* =========================================================
-       EXERCÍCIOS POR DIA
-       ========================================================= */
-
-    const INITIAL_DAY_EXERCISES = {
-
-      pull_a: [
-        'lat_pulldown',
-        'barbell_row',
-        'face_pull',
-        'bicep_curl'
-      ],
-
-      push_a: [
-        'bench_press',
-        'incline_db_press',
-        'lateral_raise',
-        'tricep_pushdown'
-      ],
-
-      legs_a: [
-        'back_squat',
-        'leg_press',
-        'leg_curl',
-        'standing_calf_raise'
-      ],
-
-      pull_b: [
-        'barbell_row',
-        'lat_pulldown',
-        'hammer_curl',
-        'face_pull'
-      ],
-
-      push_b: [
-        'overhead_press',
-        'incline_db_press',
-        'lateral_raise',
-        'tricep_pushdown'
-      ],
-
-      legs_b: [
-        'romanian_deadlift',
-        'leg_press',
-        'leg_curl',
-        'cable_crunch'
-      ],
-
-      upper_1: [
-        'bench_press',
-        'barbell_row',
-        'overhead_press',
-        'bicep_curl'
-      ],
-
-      lower_1: [
-        'back_squat',
-        'romanian_deadlift',
-        'standing_calf_raise',
-        'cable_crunch'
-      ],
-
-      upper_2: [
-        'incline_db_press',
-        'lat_pulldown',
-        'lateral_raise',
-        'tricep_pushdown'
-      ],
-
-      lower_2: [
-        'romanian_deadlift',
-        'leg_press',
-        'leg_curl',
-        'standing_calf_raise'
-      ]
-
-    };
-
-
-    /* =========================================================
-       ESTADO
-       ========================================================= */
-
-    let state = {
-
-      selectedSplit: 'PULL_PUSH_LEGS',
-
-      activeDayId: 'pull_a',
-
-      readinessScore: 80,
-
-      sleepHours: 7.5,
-
-      sorenessLevel: 3,
-
-      autoDeloadActive: false,
-
-      completedLogs: [],
-
-      workoutData: {}
-
-    };
-
-
-    /* =========================================================
-       INICIALIZA DADOS
-       ========================================================= */
-
-    Object.keys(INITIAL_DAY_EXERCISES).forEach(dayKey => {
-
-      state.workoutData[dayKey] =
-        INITIAL_DAY_EXERCISES[dayKey].map(exId => ({
-
-          exerciseId: exId,
-
-          sets: 3,
-
-          weight:
-            exId.includes('squat') ||
-            exId.includes('bench') ||
-            exId.includes('deadlift')
-              ? 80
-              : 30,
-
-          completed: false
-
-        }));
-
-    });
-
-
-    /* =========================================================
-       ENGINE DE FADIGA
-       ========================================================= */
-
-    function calculateFatigueIndex() {
-
-      const sleepDeficit =
-        Math.max(0, (8 - state.sleepHours) * 12);
-
-      const sorenessImpact =
-        state.sorenessLevel * 5.5;
-
-      const readinessDeficit =
-        (100 - state.readinessScore) * 0.4;
-
-      let rawFatigue =
-        sleepDeficit +
-        sorenessImpact +
-        readinessDeficit;
-
-      if (state.autoDeloadActive) {
-        rawFatigue *= 0.6;
-      }
-
-      return Math.min(
-        100,
-        Math.max(5, Math.round(rawFatigue))
-      );
-
-    }
-
-
-    function getVolumeFactor() {
-
-      const fatigue = calculateFatigueIndex();
-
-      if (fatigue > 75) return 0.7;
-
-      if (fatigue > 50) return 0.85;
-
-      if (fatigue < 25) return 1.15;
-
-      return 1.0;
-
-    }
-
-
-    function getRecommendedRpe() {
-
-      const fatigue = calculateFatigueIndex();
-
-      if (fatigue > 70) return 7.0;
-
-      if (fatigue > 50) return 8.0;
-
-      if (
-        state.readinessScore > 85 &&
-        fatigue < 30
-      ) {
-        return 9.0;
-      }
-
-      return 8.5;
-
-    }
-
-
-    /* =========================================================
-       ATUALIZAÇÃO DA INTERFACE
-       ========================================================= */
-
-    function updateUI() {
-
-      const fatigue =
-        calculateFatigueIndex();
-
-      const rpe =
-        getRecommendedRpe();
-
-      const volumeFactor =
-        getVolumeFactor();
-
-
-      /* Widgets */
-
-      const widgetFatigue =
-        document.getElementById('widgetFatigue');
-
-      widgetFatigue.textContent =
-        `${fatigue}%`;
-
-      widgetFatigue.className =
-        `text-lg font-bold ${
-          fatigue > 65
-            ? 'text-rose-400'
-            : fatigue > 40
-              ? 'text-amber-400'
-              : 'text-emerald-400'
-        }`;
-
-
-      document.getElementById('widgetRpe')
-        .textContent =
-        `@${rpe.toFixed(1)}`;
-
-
-      /* Controles */
-
-      document.getElementById('valReadiness')
-        .textContent =
-        `${state.readinessScore}%`;
-
-      document.getElementById('valSleep')
-        .textContent =
-        `${state.sleepHours} hrs`;
-
-      document.getElementById('valSoreness')
-        .textContent =
-        `${state.sorenessLevel}/10`;
-
-
-      /* Status */
-
-      const statusTitle =
-        document.getElementById('statusTitle');
-
-      const statusDesc =
-        document.getElementById('statusDesc');
-
-      const statusIcon =
-        document.getElementById('statusIcon');
-
-
-      if (fatigue > 65) {
-
-        statusTitle.textContent =
-          'Fadiga Sistêmica Alta';
-
-        statusDesc.textContent =
-          'Volume ajustado (-30%) para evitar sobrecarga no SNC e acelerar a recuperação.';
-
-        statusIcon.className =
-          'w-5 h-5 shrink-0 mt-0.5 text-rose-400';
-
-      } else {
-
-        statusTitle.textContent =
-          'Estado Anabólico Ideal';
-
-        statusDesc.textContent =
-          'Volume mantido em 100%. Recomendado foco em sobrecarga progressiva mantendo RPE 8-9.';
-
-        statusIcon.className =
-          'w-5 h-5 shrink-0 mt-0.5 text-emerald-400';
-
-      }
-
-
-      renderSplitButtons();
-
-      renderDayTabs();
-
-      renderWorkoutContent(
-        volumeFactor,
-        rpe
-      );
-
-      renderVolumeBars(
-        volumeFactor
-      );
-
-
-      if (
-        typeof lucide !== 'undefined' &&
-        typeof lucide.createIcons === 'function'
-      ) {
-        lucide.createIcons();
-      }
-
-    }
-
-
-    /* =========================================================
-       SPLIT BUTTONS
-       ========================================================= */
-
-    function renderSplitButtons() {
-
-      const container =
-        document.getElementById(
-          'splitButtonsContainer'
-        );
-
-      container.innerHTML = '';
-
-
-      Object.keys(SPLIT_PROGRAMS)
-        .forEach(key => {
-
-          const prog =
-            SPLIT_PROGRAMS[key];
-
-          const isSelected =
-            state.selectedSplit === key;
-
-
-          const btn =
-            document.createElement('button');
-
-
-          btn.className =
-            `w-full text-left p-3.5 rounded-xl border transition-all ${
-              isSelected
-                ? 'bg-gradient-to-r from-emerald-500/10 to-teal-500/5 border-emerald-500/40 text-slate-100 shadow-md'
-                : 'bg-slate-950/40 border-slate-800/80 text-slate-400 hover:border-slate-700 hover:text-slate-300'
-            }`;
-
-
-          btn.onclick = () => {
-
-            state.selectedSplit =
-              key;
-
-            state.activeDayId =
-              SPLIT_PROGRAMS[key]
-                .days[0].id;
-
-            updateUI();
-
-          };
-
-
-          btn.innerHTML = `
-
-            <div class="flex justify-between items-center mb-1">
-
-              <span class="font-semibold text-sm">
-                ${prog.name}
-              </span>
-
-              <span class="text-[10px] px-2 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-slate-300">
-                ${prog.recommendedDays} Dias/Semana
-              </span>
-
-            </div>
-
-            <p class="text-xs text-slate-400">
-              ${prog.description}
-            </p>
-
-          `;
-
-
-          container.appendChild(btn);
-
-        });
-
-    }
-
-
-    /* =========================================================
-       DAY TABS
-       ========================================================= */
-
-    function renderDayTabs() {
-
-      const container =
-        document.getElementById(
-          'dayTabsContainer'
-        );
-
-      container.innerHTML = '';
-
-
-      const currentSplit =
-        SPLIT_PROGRAMS[
-          state.selectedSplit
-        ];
-
-
-      currentSplit.days.forEach(
-        (day, idx) => {
-
-          const isActive =
-            day.id === state.activeDayId;
-
-
-          const btn =
-            document.createElement('button');
-
-
-          btn.className =
-            `px-4 py-2.5 rounded-xl font-medium text-xs whitespace-nowrap transition-all flex items-center gap-2 border ${
-              isActive
-                ? 'bg-emerald-500 text-slate-950 border-emerald-400 font-bold shadow-lg shadow-emerald-500/20'
-                : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-200'
-            }`;
-
-
-          btn.onclick = () => {
-
-            state.activeDayId =
-              day.id;
-
-            updateUI();
-
-          };
-
-
-          btn.innerHTML = `
-
-            <span>
-              Dia ${idx + 1}: ${day.name}
-            </span>
-
-            ${
-              day.isRest
-                ? '<span class="px-1.5 py-0.5 rounded bg-slate-800 text-[10px]">OFF</span>'
-                : ''
-            }
-
-          `;
-
-
-          container.appendChild(btn);
-
-        }
-      );
-
-    }
-
-
-    /* =========================================================
-       WORKOUT CONTENT
-       ========================================================= */
-
-    function renderWorkoutContent(
-      volumeFactor,
-      rpe
-    ) {
-
-      const currentSplit =
-        SPLIT_PROGRAMS[
-          state.selectedSplit
-        ];
-
-
-      const activeDay =
-        currentSplit.days.find(
-          d => d.id === state.activeDayId
-        ) ||
-        currentSplit.days[0];
-
-
-      document.getElementById(
-        'activeDayTitle'
-      ).textContent =
-        activeDay.name;
-
-
-      document.getElementById(
-        'activeDayGroups'
-      ).textContent =
-        activeDay.targetGroups.length > 0
-          ? activeDay.targetGroups.join(', ')
-          : 'Descanso / Mobilidade';
-
-
-      const restBadge =
-        document.getElementById(
-          'restBadge'
-        );
-
-
-      const btnLog =
-        document.getElementById(
-          'btnLogSession'
-        );
-
-
-      const container =
-        document.getElementById(
-          'workoutContent'
-        );
-
-
-      container.innerHTML = '';
-
-
-      if (activeDay.isRest) {
-
-        restBadge.classList.remove(
-          'hidden'
-        );
-
-        btnLog.classList.add(
-          'hidden'
-        );
-
-
-        container.innerHTML = `
-
-          <div class="py-16 text-center space-y-4">
-
-            <div class="w-16 h-16 bg-slate-800/50 rounded-2xl border border-slate-700/50 flex items-center justify-center mx-auto text-indigo-400">
-
-              <i
-                data-lucide="rotate-ccw"
-                class="w-8 h-8">
-              </i>
-
-            </div>
-
-            <div class="max-w-md mx-auto">
-
-              <h3 class="text-lg font-semibold text-slate-200 mb-1">
-                Dia de Recuperação Ativa
-              </h3>
-
-              <p class="text-xs text-slate-400">
-                A síntese proteica e o crescimento muscular acontecem durante o descanso. Mantenha boa hidratação e ingestão de proteínas.
-              </p>
-
-            </div>
-
-          </div>
-
-        `;
-
-        return;
-
-      }
-
-
-      restBadge.classList.add(
-        'hidden'
-      );
-
-      btnLog.classList.remove(
-        'hidden'
-      );
-
-
-      const exerciseList =
-        state.workoutData[
-          activeDay.id
-        ] || [];
-
-
-      exerciseList.forEach(
-        (item, index) => {
-
-          const meta =
-            EXERCISE_DATABASE[
-              item.exerciseId
-            ] || {
-              name: item.exerciseId,
-              group: 'Geral',
-              type: 'Padrão'
-            };
-
-
-          const adjustedSets =
-            Math.round(
-              item.sets * volumeFactor
-            );
-
-
-          const card =
-            document.createElement(
-              'div'
-            );
-
-
-          card.className =
-            `p-4 rounded-xl border transition-all ${
-              item.completed
-                ? 'bg-emerald-950/20 border-emerald-500/30 opacity-75'
-                : 'bg-slate-950/60 border-slate-800'
-            }`;
-
-
-          card.innerHTML = `
-
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-
-              <div class="space-y-1">
-
-                <div class="flex items-center gap-2">
-
-                  <button
-                    onclick="toggleExerciseComplete('${activeDay.id}', ${index})"
-                    class="p-1 rounded-md border ${
-                      item.completed
-                        ? 'bg-emerald-500 text-slate-950 border-emerald-400'
-                        : 'border-slate-700 text-transparent'
-                    }">
-
-                    <i
-                      data-lucide="check-circle-2"
-                      class="w-4 h-4">
-                    </i>
-
-                  </button>
-
-                  <h4 class="font-semibold text-sm text-slate-200">
-                    ${meta.name}
-                  </h4>
-
-                  <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">
-                    ${meta.group}
-                  </span>
+                    <p class="hero-note">
+                        Estrutura de treino, acompanhamento e
+                        progressão em um só lugar.
+                    </p>
 
                 </div>
 
-                <p class="text-xs text-slate-400 pl-7">
 
-                  Intensidade Meta:
+                <div class="engine-card">
 
-                  <span class="text-sky-400 font-medium">
-                    RPE @${rpe.toFixed(1)}
-                  </span>
+                    <div class="engine-top">
 
-                  • Tipo: ${meta.type}
+                        <div>
 
+                            <div class="engine-title">
+                                Hypertrophy Engine
+                            </div>
+
+                            <div class="engine-version">
+                                Planejamento autorregulado
+                            </div>
+
+                        </div>
+
+
+                        <div class="status">
+                            ✓
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric">
+
+                        <div class="metric-header">
+
+                            <span class="metric-label">
+                                Prontidão
+                            </span>
+
+                            <span class="metric-value">
+                                82%
+                            </span>
+
+                        </div>
+
+                        <div class="progress">
+                            <span></span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="metric-grid">
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                Volume
+                            </div>
+
+                            <div
+                                class="metric-value"
+                                style="margin-top:7px;"
+                            >
+                                Ajustado
+                            </div>
+
+                        </div>
+
+
+                        <div class="metric">
+
+                            <div class="metric-label">
+                                RPE
+                            </div>
+
+                            <div
+                                class="metric-value"
+                                style="margin-top:7px;"
+                            >
+                                Controlado
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             BENEFÍCIOS
+        ========================================== -->
+
+        <section
+            id="beneficios"
+            class="benefits"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        BENEFÍCIOS
+                    </span>
+
+                    <h2>
+                        Mais estratégia.
+                        Menos improviso.
+                    </h2>
+
+                    <p>
+                        Um planejamento estruturado ajuda a organizar
+                        o treinamento e acompanhar a evolução.
+                    </p>
+
+                </div>
+
+
+                <div class="cards">
+
+                    <article class="card">
+
+                        <div class="icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Treino estruturado
+                        </h3>
+
+                        <p>
+                            Organize exercícios, séries, cargas e
+                            volume de treinamento.
+                        </p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="icon">
+                            ↗
+                        </div>
+
+                        <h3>
+                            Progressão
+                        </h3>
+
+                        <p>
+                            Acompanhe seu desempenho e mantenha
+                            uma evolução planejada.
+                        </p>
+
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="icon">
+                            ⚡
+                        </div>
+
+                        <h3>
+                            Autorregulação
+                        </h3>
+
+                        <p>
+                            Considere fatores como recuperação,
+                            sono e percepção de esforço.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             COMO FUNCIONA
+        ========================================== -->
+
+        <section id="como-funciona">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        COMO FUNCIONA
+                    </span>
+
+                    <h2>
+                        Um processo simples para
+                        acompanhar sua evolução.
+                    </h2>
+
+                </div>
+
+
+                <div class="steps">
+
+                    <article class="step">
+
+                        <span class="step-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Avalie
+                        </h3>
+
+                        <p>
+                            Observe sua disposição, recuperação
+                            e desempenho antes do treinamento.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <span class="step-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Treine
+                        </h3>
+
+                        <p>
+                            Execute o planejamento acompanhando
+                            exercícios, séries, cargas e esforço.
+                        </p>
+
+                    </article>
+
+
+                    <article class="step">
+
+                        <span class="step-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Evolua
+                        </h3>
+
+                        <p>
+                            Use o acompanhamento do treinamento
+                            para observar sua evolução ao longo
+                            do tempo.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SOBRE
+        ========================================== -->
+
+        <section
+            id="sobre"
+            class="about"
+        >
+
+            <div class="container about-grid">
+
+                <div class="about-box">
+
+                    <div class="about-mark">
+                        H
+                    </div>
+
+                </div>
+
+
+                <div class="about-content">
+
+                    <span class="section-label">
+                        SOBRE
+                    </span>
+
+                    <h2
+                        data-v8="content.name"
+                    >
+                        Hypertrophy Engine
+                    </h2>
+
+                    <p
+                        data-v8="content.description"
+                    >
+                        Uma abordagem organizada para quem busca
+                        melhorar seus treinos e acompanhar sua
+                        evolução com mais clareza.
+                    </p>
+
+                    <p>
+                        Para conhecer melhor o trabalho e saber
+                        como funciona o atendimento, entre em
+                        contato pelo WhatsApp.
+                    </p>
+
+
+                    <div style="margin-top:28px;">
+
+                        <a
+                            href="#"
+                            data-v8="contact.whatsapp"
+                            class="btn btn-primary"
+                        >
+                            Entrar em contato
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             LOCALIZAÇÃO
+        ========================================== -->
+
+        <section
+            id="localizacao"
+            class="location"
+        >
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="section-label">
+                        LOCALIZAÇÃO
+                    </span>
+
+                    <h2>
+                        Onde estamos
+                    </h2>
+
+                    <p>
+                        Confira a localização e entre em contato
+                        para obter mais informações.
+                    </p>
+
+                </div>
+
+
+                <div class="location-grid">
+
+                    <div class="location-info">
+
+                        <h3>
+                            Atendimento
+                        </h3>
+
+
+                        <p
+                            class="address"
+                            data-v8="content.address"
+                        >
+                            Localização disponível em breve.
+                        </p>
+
+
+                        <div style="margin-top:25px;">
+
+                            <a
+                                href="#"
+                                data-v8="contact.whatsapp"
+                                class="btn btn-primary"
+                            >
+                                Falar pelo WhatsApp
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <!--
+                        O V8 Loader preencherá este espaço
+                        com o mapa configurado no projeto.
+                    -->
+
+                    <div
+                        class="location-map"
+                        data-v8-maps-embed
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CTA
+        ========================================== -->
+
+        <section
+            id="contato"
+            class="cta"
+        >
+
+            <div class="container">
+
+                <h2>
+                    Comece a organizar sua evolução.
+                </h2>
+
+
+                <p>
+                    Fale conosco e descubra como funciona
+                    o Hypertrophy Engine.
                 </p>
 
-              </div>
 
-
-              <div class="flex items-center gap-6 self-end sm:self-center">
-
-                <!-- PESO -->
-
-                <div class="flex flex-col items-center">
-
-                  <span class="text-[10px] text-slate-400 mb-1">
-                    Carga (kg)
-                  </span>
-
-                  <div class="flex items-center bg-slate-900 rounded-lg border border-slate-800">
-
-                    <button
-                      onclick="updateWeight('${activeDay.id}', ${index}, -2)"
-                      class="px-2 py-1 text-slate-400 hover:text-white text-xs">
-                      -
-                    </button>
-
-                    <span class="px-2 text-xs font-bold text-slate-200">
-                      ${item.weight}
-                    </span>
-
-                    <button
-                      onclick="updateWeight('${activeDay.id}', ${index}, 2)"
-                      class="px-2 py-1 text-slate-400 hover:text-white text-xs">
-                      +
-                    </button>
-
-                  </div>
-
-                </div>
-
-
-                <!-- SÉRIES -->
-
-                <div class="flex flex-col items-center">
-
-                  <span class="text-[10px] text-slate-400 mb-1">
-                    Séries Prescritas
-                  </span>
-
-                  <div class="flex items-center bg-slate-900 rounded-lg border border-slate-800">
-
-                    <button
-                      onclick="updateSets('${activeDay.id}', ${index}, -1)"
-                      class="px-2 py-1 text-slate-400 hover:text-white text-xs">
-                      -
-                    </button>
-
-                    <span class="px-2 text-xs font-bold text-emerald-400">
-                      ${adjustedSets}
-                    </span>
-
-                    <button
-                      onclick="updateSets('${activeDay.id}', ${index}, 1)"
-                      class="px-2 py-1 text-slate-400 hover:text-white text-xs">
-                      +
-                    </button>
-
-                  </div>
-
-                </div>
-
-              </div>
+                <a
+                    href="#"
+                    data-v8="contact.whatsapp"
+                    class="btn btn-primary"
+                >
+                    Falar pelo WhatsApp
+                </a>
 
             </div>
 
-          `;
+        </section>
+
+    </main>
 
 
-          container.appendChild(card);
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
 
-        }
-      );
+    <footer>
 
-    }
+        <div class="container footer-content">
 
+            <div>
 
-    /* =========================================================
-       VOLUME BARS
-       ========================================================= */
+                ©
+                <span id="year"></span>
 
-    function renderVolumeBars(
-      volumeFactor
-    ) {
-
-      const container =
-        document.getElementById(
-          'volumeBarsContainer'
-        );
-
-
-      container.innerHTML = '';
-
-
-      const groupTotals = {};
-
-
-      const currentSplit =
-        SPLIT_PROGRAMS[
-          state.selectedSplit
-        ];
-
-
-      currentSplit.days.forEach(
-        day => {
-
-          const exercises =
-            state.workoutData[
-              day.id
-            ] || [];
-
-
-          exercises.forEach(
-            item => {
-
-              const meta =
-                EXERCISE_DATABASE[
-                  item.exerciseId
-                ];
-
-
-              if (meta) {
-
-                const group =
-                  meta.group;
-
-                const sets =
-                  Math.round(
-                    item.sets *
-                    volumeFactor
-                  );
-
-
-                groupTotals[group] =
-                  (
-                    groupTotals[group] ||
-                    0
-                  ) + sets;
-
-              }
-
-            }
-          );
-
-        }
-      );
-
-
-      Object.entries(
-        groupTotals
-      ).forEach(
-        ([group, sets]) => {
-
-          const percentage =
-            Math.min(
-              100,
-              Math.round(
-                (sets / 20) * 100
-              )
-            );
-
-
-          const colorClass =
-            sets < 10
-              ? 'bg-amber-400'
-              : sets > 20
-                ? 'bg-rose-500'
-                : 'bg-emerald-400';
-
-
-          const row =
-            document.createElement(
-              'div'
-            );
-
-
-          row.className =
-            'space-y-1';
-
-
-          row.innerHTML = `
-
-            <div class="flex justify-between font-medium">
-
-              <span class="text-slate-300">
-                ${group}
-              </span>
-
-              <span class="${
-                sets < 10
-                  ? 'text-amber-400'
-                  : sets > 20
-                    ? 'text-rose-400'
-                    : 'text-emerald-400'
-              }">
-
-                ${sets} Séries / sem
-
-              </span>
+                <span data-v8="content.name">
+                    Hypertrophy Engine
+                </span>
 
             </div>
 
-            <div class="w-full h-1.5 bg-slate-950 rounded-full overflow-hidden border border-slate-800/50">
 
-              <div
-                class="h-full rounded-full transition-all duration-300 ${colorClass}"
-                style="width: ${percentage}%">
-              </div>
+            <div class="socials">
+
+                <a
+                    href="#"
+                    data-v8="social.instagram"
+                    aria-label="Instagram"
+                >
+                    Instagram
+                </a>
+
+                <a
+                    href="#"
+                    data-v8="social.facebook"
+                    aria-label="Facebook"
+                >
+                    Facebook
+                </a>
 
             </div>
 
-          `;
+        </div>
 
+    </footer>
 
-          container.appendChild(row);
 
-        }
-      );
+    <script>
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
+    </script>
 
-    }
 
+    <!-- =========================================
+         V8 LOADER
+         NÃO ALTERAR
+    ========================================== -->
 
-    /* =========================================================
-       MANIPULADORES
-       ========================================================= */
-
-    function updateSets(
-      dayId,
-      index,
-      delta
-    ) {
-
-      const item =
-        state.workoutData[
-          dayId
-        ][index];
-
-
-      if (item) {
-
-        item.sets =
-          Math.max(
-            1,
-            Math.min(
-              8,
-              item.sets + delta
-            )
-          );
-
-
-        updateUI();
-
-      }
-
-    }
-
-
-    function updateWeight(
-      dayId,
-      index,
-      delta
-    ) {
-
-      const item =
-        state.workoutData[
-          dayId
-        ][index];
-
-
-      if (item) {
-
-        item.weight =
-          Math.max(
-            0,
-            item.weight + delta
-          );
-
-
-        updateUI();
-
-      }
-
-    }
-
-
-    function toggleExerciseComplete(
-      dayId,
-      index
-    ) {
-
-      const item =
-        state.workoutData[
-          dayId
-        ][index];
-
-
-      if (item) {
-
-        item.completed =
-          !item.completed;
-
-        updateUI();
-
-      }
-
-    }
-
-
-    /* =========================================================
-       SLIDERS
-       ========================================================= */
-
-    document
-      .getElementById(
-        'inputReadiness'
-      )
-      .addEventListener(
-        'input',
-        e => {
-
-          state.readinessScore =
-            Number(
-              e.target.value
-            );
-
-          updateUI();
-
-        }
-      );
-
-
-    document
-      .getElementById(
-        'inputSleep'
-      )
-      .addEventListener(
-        'input',
-        e => {
-
-          state.sleepHours =
-            Number(
-              e.target.value
-            );
-
-          updateUI();
-
-        }
-      );
-
-
-    document
-      .getElementById(
-        'inputSoreness'
-      )
-      .addEventListener(
-        'input',
-        e => {
-
-          state.sorenessLevel =
-            Number(
-              e.target.value
-            );
-
-          updateUI();
-
-        }
-      );
-
-
-    /* =========================================================
-       DELOAD MODE
-       ========================================================= */
-
-    document
-      .getElementById(
-        'btnDeload'
-      )
-      .addEventListener(
-        'click',
-        () => {
-
-          state.autoDeloadActive =
-            !state.autoDeloadActive;
-
-
-          const btn =
-            document.getElementById(
-              'btnDeload'
-            );
-
-
-          btn.textContent =
-            state.autoDeloadActive
-              ? 'Deload: ON'
-              : 'Deload: OFF';
-
-
-          btn.className =
-            `px-3 py-1 rounded-lg text-xs font-medium border transition-all ${
-              state.autoDeloadActive
-                ? 'bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-sm'
-                : 'bg-slate-800 text-slate-400 border-slate-700'
-            }`;
-
-
-          updateUI();
-
-        }
-      );
-
-
-    /* =========================================================
-       REGISTRAR SESSÃO
-       ========================================================= */
-
-    document
-      .getElementById(
-        'btnLogSession'
-      )
-      .addEventListener(
-        'click',
-        () => {
-
-          const currentSplit =
-            SPLIT_PROGRAMS[
-              state.selectedSplit
-            ];
-
-
-          const activeDay =
-            currentSplit.days.find(
-              d =>
-                d.id ===
-                state.activeDayId
-            );
-
-
-          const log = {
-
-            dayName:
-              activeDay.name,
-
-            date:
-              new Date().toLocaleDateString(
-                'pt-BR',
-                {
-                  day: '2-digit',
-                  month: 'short'
-                }
-              ),
-
-            rpe:
-              getRecommendedRpe()
-                .toFixed(1),
-
-            fatigue:
-              calculateFatigueIndex()
-
-          };
-
-
-          state.completedLogs.unshift(
-            log
-          );
-
-
-          const historySection =
-            document.getElementById(
-              'historySection'
-            );
-
-
-          const historyGrid =
-            document.getElementById(
-              'historyGrid'
-            );
-
-
-          historySection.classList.remove(
-            'hidden'
-          );
-
-
-          historyGrid.innerHTML =
-            state.completedLogs
-              .slice(0, 4)
-              .map(
-                l => `
-
-                  <div class="p-3 bg-slate-950/60 rounded-xl border border-slate-800 flex justify-between items-center text-xs">
-
-                    <div>
-
-                      <span class="font-semibold text-slate-200 block">
-                        ${l.dayName}
-                      </span>
-
-                      <span class="text-slate-400">
-                        ${l.date}
-                      </span>
-
-                    </div>
-
-                    <div class="text-right">
-
-                      <span class="text-sky-400 font-bold block">
-                        RPE @${l.rpe}
-                      </span>
-
-                      <span class="text-slate-500">
-                        Estresse: ${l.fatigue}%
-                      </span>
-
-                    </div>
-
-                  </div>
-
-                `
-              )
-              .join('');
-
-        }
-      );
-
-
-    /* =========================================================
-       INICIALIZAÇÃO
-       ========================================================= */
-
-    window.addEventListener(
-      'DOMContentLoaded',
-      () => {
-
-        updateUI();
-
-      }
-    );
-
-  </script>
-
-
-  <!-- =========================================================
-       V8 LOADER
-       
-       NÃO ALTERAR O V8 LOADER.
-       O Loader utiliza o project-id abaixo para buscar
-       a configuração deste projeto no V8 Admin Universal.
-       ========================================================= -->
-
-  <script
-    src="js/v8-loader.js"
-    data-project-id="61d5d01f-b017-4f84-8a15-4d94e7dbbd89">
-  </script>
+    <script
+        src="js/v8-loader.js"
+        data-project-id="61d5d01f-b017-4f84-8a15-4d94e7dbbd89">
+    </script>
 
 </body>
+
 </html>
