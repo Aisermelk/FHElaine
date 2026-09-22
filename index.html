@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -11,13 +10,13 @@
     >
 
     <meta
-        name="theme-color"
-        content="#FFD6E0"
+        name="description"
+        content="Elaine Maidana — Furo Humanizado. Atendimento domiciliar para bebês, crianças e adultos em Porto Alegre e Canoas."
     >
 
     <meta
-        name="description"
-        content="Elaine Maidana — Furo Humanizado. Atendimento domiciliar em Porto Alegre e Canoas para bebês, crianças e adultos."
+        name="theme-color"
+        content="#FFD6E0"
     >
 
     <title>
@@ -26,14 +25,16 @@
 
     <style>
 
-        /* =====================================================
+        /* =========================================================
            RESET
-        ===================================================== */
+        ========================================================= */
 
-        * {
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
         html {
@@ -47,14 +48,15 @@
                 sans-serif;
 
             background: #fffafb;
-            color: #4d4144;
-
+            color: #514448;
             line-height: 1.6;
+
+            overflow-x: hidden;
         }
 
         img {
-            max-width: 100%;
             display: block;
+            max-width: 100%;
         }
 
         a {
@@ -63,112 +65,114 @@
         }
 
         button,
-        a {
-            -webkit-tap-highlight-color: transparent;
+        input,
+        textarea {
+            font: inherit;
         }
 
         :root {
+            --pink: #FFD6E0;
+            --pink-light: #FFF1F4;
+            --pink-soft: #FFF8FA;
+            --pink-dark: #D98B9F;
+            --pink-deep: #C8758B;
 
-            --rosa: #FFD6E0;
-            --rosa-escuro: #e9a9b8;
-            --rosa-forte: #d98b9f;
+            --gold: #C9A86A;
+            --gold-light: #E9D8B5;
 
-            --dourado: #C9A86A;
-            --dourado-claro: #ead9b7;
+            --white: #FFFFFF;
 
-            --branco: #ffffff;
+            --text: #514448;
+            --text-dark: #3F3438;
+            --muted: #817276;
 
-            --creme: #fff8fa;
+            --border: #F0DDE3;
 
-            --cinza: #817477;
-            --cinza-claro: #f5edef;
+            --green: #25D366;
 
-            --texto: #4d4144;
+            --max-width: 1180px;
 
-            --borda: #f0dfe4;
-
-            --max: 1180px;
-
-            --sombra:
-                0 15px 45px
-                rgba(135, 81, 96, .10);
+            --shadow:
+                0 20px 60px
+                rgba(120, 70, 85, .10);
         }
 
 
-        /* =====================================================
-           BASE
-        ===================================================== */
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
 
         .container {
-
             width: min(
                 calc(100% - 40px),
-                var(--max)
+                var(--max-width)
             );
 
-            margin: auto;
+            margin-inline: auto;
         }
-
 
         section {
-            padding: 90px 0;
+            padding: 100px 0;
         }
-
 
         .section-label {
-
             display: inline-block;
 
-            color: var(--dourado);
+            margin-bottom: 14px;
+
+            color: var(--gold);
 
             font-size: 12px;
+            font-weight: 800;
 
-            font-weight: 700;
-
-            letter-spacing: .15em;
-
+            letter-spacing: .16em;
             text-transform: uppercase;
-
-            margin-bottom: 12px;
         }
 
-
         .section-title {
-
             font-family:
                 Georgia,
                 "Times New Roman",
                 serif;
 
+            color: var(--text-dark);
+
             font-size:
-                clamp(32px, 5vw, 50px);
+                clamp(34px, 5vw, 54px);
 
-            line-height: 1.1;
-
-            color: #3f3437;
-
+            line-height: 1.08;
             font-weight: 500;
+            letter-spacing: -.035em;
         }
 
-
-        .section-text {
-
+        .section-description {
             max-width: 680px;
 
             margin-top: 18px;
 
-            color: var(--cinza);
+            color: var(--muted);
 
             font-size: 17px;
         }
 
+        .center-heading {
+            max-width: 720px;
 
-        /* =====================================================
+            margin: 0 auto 55px;
+
+            text-align: center;
+        }
+
+        .center-heading .section-description {
+            margin-inline: auto;
+        }
+
+
+        /* =========================================================
            HEADER
-        ===================================================== */
+        ========================================================= */
 
-        header {
-
+        .site-header {
             position: absolute;
 
             top: 0;
@@ -178,172 +182,197 @@
             z-index: 20;
         }
 
-
         .nav {
-
             min-height: 82px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
 
-            gap: 30px;
+            gap: 25px;
         }
 
-
         .brand {
-
             display: flex;
-
             align-items: center;
 
             gap: 12px;
         }
 
-
-        .brand-symbol {
-
-            width: 43px;
-            height: 43px;
+        .brand-mark {
+            width: 46px;
+            height: 46px;
 
             display: grid;
-
             place-items: center;
 
             border-radius: 50%;
 
             background:
                 linear-gradient(
-                    135deg,
-                    #fff,
-                    var(--rosa)
+                    145deg,
+                    #FFFFFF,
+                    var(--pink)
                 );
 
             border:
                 1px solid
                 rgba(201,168,106,.35);
 
-            color: var(--dourado);
+            color: var(--gold);
 
             font-family: Georgia, serif;
+            font-size: 22px;
 
-            font-size: 20px;
+            box-shadow:
+                0 8px 25px
+                rgba(120,70,85,.08);
         }
 
-
-        .brand-text strong {
-
+        .brand-name {
             display: block;
 
-            font-family: Georgia, serif;
+            color: var(--text-dark);
 
+            font-family: Georgia, serif;
             font-size: 18px;
-
             font-weight: 500;
-
-            color: #473a3d;
         }
 
-
-        .brand-text span {
-
+        .brand-subtitle {
             display: block;
 
-            color: var(--dourado);
+            margin-top: -2px;
 
-            font-size: 10px;
+            color: var(--gold);
 
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: .14em;
             text-transform: uppercase;
-
-            letter-spacing: .12em;
         }
-
 
         .nav-links {
-
             display: flex;
-
             align-items: center;
 
-            gap: 27px;
+            gap: 26px;
+
+            color: #6B5C61;
 
             font-size: 14px;
-
-            color: #685b5f;
         }
-
 
         .nav-links a {
-
-            transition: .2s;
+            transition: color .2s ease;
         }
-
 
         .nav-links a:hover {
-
-            color: var(--rosa-forte);
+            color: var(--pink-deep);
         }
 
-
-        .nav-cta {
-
-            padding:
-                11px 19px;
-
-            border-radius: 30px;
-
-            background: #fff;
+        .nav-instagram {
+            padding: 10px 18px;
 
             border:
                 1px solid
-                var(--rosa-escuro);
+                var(--pink-dark);
 
-            color: var(--rosa-forte);
+            border-radius: 30px;
+
+            color: var(--pink-deep);
 
             font-weight: 700;
         }
 
 
-        /* =====================================================
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .button {
+            min-height: 54px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                0 25px;
+
+            border-radius: 30px;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            color: #FFFFFF;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--pink-deep),
+                    var(--pink-dark)
+                );
+
+            box-shadow:
+                0 14px 35px
+                rgba(216,137,157,.28);
+        }
+
+        .button-secondary {
+            color: #685A5F;
+
+            background: #FFFFFF;
+
+            border:
+                1px solid
+                var(--border);
+        }
+
+
+        /* =========================================================
            HERO
-        ===================================================== */
+        ========================================================= */
 
         .hero {
-
-            min-height: 780px;
+            min-height: 820px;
 
             display: flex;
-
             align-items: center;
 
             padding:
                 150px 0
-                90px;
+                100px;
 
             background:
 
                 radial-gradient(
-                    circle at 85% 25%,
-                    rgba(255,214,224,.9),
-                    transparent 32%
+                    circle at 87% 25%,
+                    rgba(255,214,224,.95),
+                    transparent 31%
                 ),
 
                 radial-gradient(
-                    circle at 10% 80%,
-                    rgba(234,217,183,.25),
-                    transparent 28%
+                    circle at 10% 85%,
+                    rgba(233,216,181,.18),
+                    transparent 30%
                 ),
 
-                #fffafb;
-
-            overflow: hidden;
+                #FFFAFB;
         }
 
-
         .hero-grid {
-
             display: grid;
 
             grid-template-columns:
@@ -352,82 +381,73 @@
 
             align-items: center;
 
-            gap: 70px;
+            gap: 75px;
         }
 
-
         .hero-badge {
-
             display: inline-flex;
-
             align-items: center;
 
             gap: 8px;
 
             padding:
-                8px 14px;
-
-            border-radius: 999px;
-
-            background: #fff;
+                8px 15px;
 
             border:
                 1px solid
-                var(--borda);
+                var(--border);
 
-            color: var(--dourado);
+            border-radius: 30px;
 
-            font-size: 12px;
+            background: #FFFFFF;
 
-            font-weight: 700;
+            color: var(--gold);
 
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: .1em;
             text-transform: uppercase;
-
-            letter-spacing: .08em;
         }
 
-
         .hero h1 {
+            max-width: 760px;
 
             margin-top: 22px;
 
-            font-family: Georgia, serif;
+            color: var(--text-dark);
+
+            font-family:
+                Georgia,
+                "Times New Roman",
+                serif;
 
             font-size:
-                clamp(44px, 6vw, 72px);
+                clamp(46px, 6vw, 76px);
 
-            line-height: 1.02;
-
+            line-height: 1.01;
             font-weight: 500;
 
-            letter-spacing: -.045em;
-
-            color: #403538;
+            letter-spacing: -.05em;
         }
 
-
-        .hero h1 span {
-
-            color: var(--rosa-forte);
+        .hero h1 em {
+            color: var(--pink-deep);
+            font-style: normal;
         }
 
-
-        .hero-description {
-
-            max-width: 610px;
+        .hero-text {
+            max-width: 650px;
 
             margin-top: 25px;
 
-            color: #74666a;
+            color: var(--muted);
 
             font-size: 18px;
         }
 
-
         .hero-actions {
-
             display: flex;
-
             flex-wrap: wrap;
 
             gap: 12px;
@@ -435,253 +455,142 @@
             margin-top: 32px;
         }
 
-
-        .btn {
-
-            min-height: 52px;
-
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            padding:
-                0 24px;
-
-            border-radius: 30px;
-
-            font-weight: 700;
-
-            font-size: 14px;
-
-            transition:
-                transform .2s,
-                box-shadow .2s,
-                background .2s;
-        }
-
-
-        .btn:hover {
-
-            transform: translateY(-2px);
-        }
-
-
-        .btn-primary {
-
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--rosa-forte),
-                    #c9788e
-                );
-
-            color: #fff;
-
-            box-shadow:
-                0 12px 30px
-                rgba(217,139,159,.25);
-        }
-
-
-        .btn-primary:hover {
-
-            box-shadow:
-                0 16px 35px
-                rgba(217,139,159,.35);
-        }
-
-
-        .btn-secondary {
-
-            background: #fff;
-
-            border:
-                1px solid
-                var(--borda);
-
-            color: #6d5e62;
-        }
-
-
         .hero-note {
-
             margin-top: 18px;
 
-            color: #9a898e;
+            color: #9A898F;
 
             font-size: 13px;
         }
 
-
-        /* =====================================================
-           HERO VISUAL
-        ===================================================== */
-
         .hero-visual {
+            min-height: 510px;
 
             position: relative;
 
-            min-height: 510px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
         }
 
-
-        .visual-circle {
-
-            width:
-                min(420px, 80vw);
-
+        .hero-circle {
+            width: min(440px, 90vw);
             aspect-ratio: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
             border-radius: 50%;
 
             background:
                 linear-gradient(
                     145deg,
-                    #fff,
-                    #ffe9ee
+                    #FFFFFF,
+                    #FFE7ED
                 );
 
             border:
                 1px solid
-                rgba(201,168,106,.3);
+                rgba(201,168,106,.28);
 
-            box-shadow:
-                0 30px 80px
-                rgba(135,81,96,.13);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            text-align: center;
+            box-shadow: var(--shadow);
         }
 
-
-        .visual-content {
-
+        .hero-card {
             width: 72%;
 
-            padding: 35px;
+            padding: 38px 30px;
 
-            border-radius: 30px;
+            text-align: center;
 
             background:
-                rgba(255,255,255,.88);
+                rgba(255,255,255,.94);
+
+            border-radius: 28px;
 
             border:
                 1px solid
-                rgba(201,168,106,.2);
+                rgba(201,168,106,.18);
 
             box-shadow:
-                var(--sombra);
+                0 18px 50px
+                rgba(120,70,85,.09);
         }
 
+        .hero-heart {
+            width: 78px;
+            height: 78px;
 
-        .visual-icon {
-
-            width: 80px;
-            height: 80px;
+            display: grid;
+            place-items: center;
 
             margin:
-                0 auto 18px;
+                0 auto 20px;
 
             border-radius: 50%;
 
-            display: grid;
-
-            place-items: center;
-
             background:
                 linear-gradient(
-                    135deg,
-                    var(--rosa),
-                    #fff
+                    145deg,
+                    var(--pink),
+                    #FFFFFF
                 );
 
-            color: var(--dourado);
+            color: var(--pink-deep);
 
             font-family: Georgia, serif;
-
-            font-size: 34px;
+            font-size: 35px;
         }
 
-
-        .visual-content h2 {
+        .hero-card h2 {
+            color: var(--text-dark);
 
             font-family: Georgia, serif;
 
+            font-size: 28px;
             font-weight: 500;
-
-            color: #46393d;
-
-            font-size: 27px;
         }
 
-
-        .visual-content p {
-
+        .hero-card p {
             margin-top: 9px;
 
-            color: var(--cinza);
+            color: var(--muted);
 
             font-size: 14px;
         }
 
-
-        .visual-tag {
-
+        .hero-tag {
             display: inline-block;
 
             margin-top: 20px;
 
             padding:
-                7px 12px;
+                7px 13px;
 
             border-radius: 20px;
 
-            background: #fff5f7;
+            background: var(--pink-light);
 
-            color: var(--rosa-forte);
+            color: var(--pink-deep);
 
-            font-size: 11px;
+            font-size: 10px;
+            font-weight: 800;
 
-            font-weight: 700;
+            letter-spacing: .06em;
+            text-transform: uppercase;
         }
 
 
-        /* =====================================================
-           DIFERENCIAIS
-        ===================================================== */
+        /* =========================================================
+           DIFFERENTIALS
+        ========================================================= */
 
         .differentials {
-
-            background: #fff;
+            background: #FFFFFF;
         }
-
-
-        .heading-center {
-
-            text-align: center;
-
-            margin:
-                0 auto 50px;
-
-            max-width: 700px;
-        }
-
 
         .cards {
-
             display: grid;
 
             grid-template-columns:
@@ -690,248 +599,227 @@
             gap: 18px;
         }
 
-
         .card {
+            padding: 30px 26px;
 
-            padding: 27px;
+            background: #FFFFFF;
 
             border:
                 1px solid
-                var(--borda);
+                var(--border);
 
             border-radius: 22px;
 
-            background: #fff;
-
             box-shadow:
                 0 8px 30px
-                rgba(135,81,96,.05);
+                rgba(120,70,85,.045);
 
-            transition: .2s;
+            transition:
+                transform .2s ease,
+                box-shadow .2s ease;
         }
-
 
         .card:hover {
-
             transform: translateY(-4px);
 
-            box-shadow:
-                var(--sombra);
+            box-shadow: var(--shadow);
         }
-
 
         .card-icon {
-
-            width: 48px;
-            height: 48px;
+            width: 50px;
+            height: 50px;
 
             display: grid;
-
             place-items: center;
 
-            border-radius: 14px;
+            margin-bottom: 19px;
 
-            background:
-                #fff1f4;
+            border-radius: 15px;
 
-            color: var(--rosa-forte);
+            background: var(--pink-light);
 
-            font-size: 20px;
+            color: var(--pink-deep);
 
-            margin-bottom: 18px;
+            font-size: 21px;
         }
 
-
         .card h3 {
+            color: var(--text-dark);
 
             font-family: Georgia, serif;
 
             font-size: 21px;
-
             font-weight: 500;
-
-            color: #483b3e;
-
-            margin-bottom: 9px;
         }
 
-
         .card p {
+            margin-top: 9px;
 
-            color: var(--cinza);
+            color: var(--muted);
 
             font-size: 14px;
         }
 
 
-        /* =====================================================
-           SOBRE
-        ===================================================== */
+        /* =========================================================
+           ABOUT
+        ========================================================= */
 
         .about {
-
-            background:
-                var(--creme);
+            background: var(--pink-soft);
         }
 
-
         .about-grid {
-
             display: grid;
 
             grid-template-columns:
                 .9fr
                 1.1fr;
 
-            gap: 75px;
-
             align-items: center;
+
+            gap: 80px;
         }
 
-
         .about-visual {
+            min-height: 460px;
 
-            min-height: 430px;
+            display: grid;
+            place-items: center;
+
+            padding: 35px;
 
             border-radius: 30px;
 
             background:
                 linear-gradient(
                     145deg,
-                    #ffe4eb,
-                    #fff
+                    #FFE4EB,
+                    #FFFFFF
                 );
 
             border:
                 1px solid
-                var(--borda);
-
-            display: grid;
-
-            place-items: center;
-
-            padding: 35px;
+                var(--border);
         }
 
-
         .about-card {
-
             width: 100%;
+            max-width: 350px;
 
-            max-width: 330px;
-
-            padding: 35px;
+            padding: 42px 30px;
 
             text-align: center;
 
-            background: #fff;
+            background: #FFFFFF;
 
-            border-radius: 25px;
+            border-radius: 27px;
 
-            box-shadow:
-                var(--sombra);
+            box-shadow: var(--shadow);
         }
 
+        .about-card-symbol {
+            width: 80px;
+            height: 80px;
 
-        .about-card strong {
+            display: grid;
+            place-items: center;
 
-            display: block;
+            margin:
+                0 auto 20px;
+
+            border-radius: 50%;
+
+            background: var(--pink-light);
+
+            color: var(--pink-deep);
 
             font-family: Georgia, serif;
 
-            font-size: 26px;
-
-            font-weight: 500;
-
-            color: #493c40;
+            font-size: 34px;
         }
 
-
-        .about-card span {
-
+        .about-card strong {
             display: block;
 
-            margin-top: 6px;
+            color: var(--text-dark);
 
-            color: var(--dourado);
+            font-family: Georgia, serif;
 
-            font-size: 12px;
-
-            text-transform: uppercase;
-
-            letter-spacing: .08em;
+            font-size: 27px;
+            font-weight: 500;
         }
 
+        .about-card span {
+            display: block;
+
+            margin-top: 5px;
+
+            color: var(--gold);
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
 
         .about-content p {
-
             margin-top: 20px;
 
-            color: var(--cinza);
+            color: var(--muted);
 
             font-size: 17px;
         }
 
-
-        .about-points {
-
+        .about-list {
             display: grid;
 
             gap: 12px;
 
-            margin-top: 25px;
+            margin-top: 27px;
         }
 
-
-        .about-point {
-
+        .about-list-item {
             display: flex;
-
-            gap: 10px;
-
             align-items: flex-start;
 
-            color: #65575b;
+            gap: 11px;
+
+            color: #66575C;
 
             font-size: 14px;
         }
 
-
         .check {
+            flex: 0 0 auto;
 
-            flex-shrink: 0;
-
-            width: 22px;
-            height: 22px;
+            width: 23px;
+            height: 23px;
 
             display: grid;
-
             place-items: center;
 
             border-radius: 50%;
 
-            background: #fbe8ed;
+            background: var(--pink-light);
 
-            color: var(--rosa-forte);
+            color: var(--pink-deep);
 
             font-size: 11px;
-
-            font-weight: bold;
+            font-weight: 800;
         }
 
 
-        /* =====================================================
-           SERVIÇOS
-        ===================================================== */
+        /* =========================================================
+           SERVICES
+        ========================================================= */
 
         .services {
-
-            background: #fff;
+            background: #FFFFFF;
         }
 
-
         .service-grid {
-
             display: grid;
 
             grid-template-columns:
@@ -940,109 +828,172 @@
             gap: 18px;
         }
 
-
         .service {
+            min-height: 245px;
 
-            padding: 30px 25px;
-
-            border-radius: 20px;
-
-            background: #fffafb;
+            padding: 29px 25px;
 
             border:
                 1px solid
-                var(--borda);
-        }
+                var(--border);
 
+            border-radius: 21px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #FFFFFF,
+                    #FFFAFB
+                );
+        }
 
         .service-number {
+            color: var(--gold);
 
-            color: var(--dourado);
-
-            font-size: 12px;
-
+            font-size: 11px;
             font-weight: 800;
 
-            letter-spacing: .1em;
+            letter-spacing: .12em;
         }
 
-
         .service h3 {
+            margin-top: 18px;
 
-            margin-top: 15px;
+            color: var(--text-dark);
 
             font-family: Georgia, serif;
 
             font-size: 22px;
-
             font-weight: 500;
-
-            color: #473a3e;
         }
 
-
         .service p {
-
             margin-top: 10px;
 
-            color: var(--cinza);
+            color: var(--muted);
 
             font-size: 14px;
         }
 
 
-        /* =====================================================
-           JOIAS
-        ===================================================== */
+        /* =========================================================
+           TITÂNIO / BIOSSEGURANÇA
+        ========================================================= */
 
-        .jewelry {
+        .safety {
+            background: var(--pink-soft);
+        }
 
-            background: var(--creme);
+        .safety-grid {
+            display: grid;
+
+            grid-template-columns:
+                1fr
+                1fr;
+
+            gap: 25px;
+        }
+
+        .safety-card {
+            padding: 38px;
+
+            border-radius: 25px;
+
+            background: #FFFFFF;
+
+            border:
+                1px solid
+                var(--border);
+
+            box-shadow:
+                0 10px 40px
+                rgba(120,70,85,.05);
+        }
+
+        .safety-card h3 {
+            color: var(--text-dark);
+
+            font-family: Georgia, serif;
+
+            font-size: 28px;
+            font-weight: 500;
+        }
+
+        .safety-card p {
+            margin-top: 13px;
+
+            color: var(--muted);
+
+            font-size: 15px;
+        }
+
+        .safety-points {
+            display: grid;
+
+            gap: 13px;
+
+            margin-top: 23px;
+        }
+
+        .safety-point {
+            display: flex;
+
+            gap: 11px;
+
+            color: #66575C;
+
+            font-size: 14px;
+        }
+
+        .safety-point strong {
+            color: var(--text-dark);
         }
 
 
-        .jewelry-grid {
+        /* =========================================================
+           JEWELRY
+        ========================================================= */
 
+        .jewelry {
+            background: #FFFFFF;
+        }
+
+        .jewelry-grid {
             display: grid;
 
             grid-template-columns:
                 repeat(5, 1fr);
 
-            gap: 14px;
+            gap: 15px;
         }
 
-
         .jewel {
-
             aspect-ratio: 1;
 
-            display: flex;
+            position: relative;
 
+            display: flex;
             align-items: flex-end;
 
             padding: 18px;
 
-            border-radius: 18px;
+            overflow: hidden;
+
+            border-radius: 20px;
 
             background:
                 linear-gradient(
                     145deg,
-                    #fff,
-                    #fdebef
+                    #FFFFFF,
+                    #FCECEF
                 );
 
             border:
                 1px solid
-                var(--borda);
-
-            overflow: hidden;
-
-            position: relative;
+                var(--border);
         }
 
-
         .jewel::before {
-
             content: "✦";
 
             position: absolute;
@@ -1053,40 +1004,71 @@
             transform:
                 translate(-50%, -55%);
 
-            font-size: 50px;
+            color: var(--gold);
 
-            color: var(--dourado);
+            font-family: Georgia, serif;
 
-            opacity: .65;
+            font-size: 55px;
+
+            opacity: .7;
         }
-
 
         .jewel span {
-
             position: relative;
-
             z-index: 2;
 
+            color: #64555A;
+
             font-size: 12px;
-
-            font-weight: 700;
-
-            color: #65575b;
+            font-weight: 800;
         }
 
 
-        /* =====================================================
-           COMO FUNCIONA
-        ===================================================== */
+        /* =========================================================
+           GALERIA — CONTROLADA PELO LOADER
+        ========================================================= */
+
+        .gallery {
+            background: var(--pink-soft);
+        }
+
+        .v8-gallery {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .v8-gallery-item {
+            width: 100%;
+
+            aspect-ratio: 1 / 1;
+
+            object-fit: cover;
+
+            border-radius: 22px;
+
+            border:
+                1px solid
+                var(--border);
+
+            box-shadow:
+                0 8px 30px
+                rgba(120,70,85,.07);
+        }
+
+
+        /* =========================================================
+           PROCESS
+        ========================================================= */
 
         .process {
-
-            background: #fff;
+            background: #FFFFFF;
         }
 
-
         .process-grid {
-
             display: grid;
 
             grid-template-columns:
@@ -1095,271 +1077,231 @@
             gap: 20px;
         }
 
-
         .process-item {
+            padding: 24px;
 
             text-align: center;
-
-            padding: 25px;
         }
 
-
         .process-number {
+            width: 58px;
+            height: 58px;
 
-            width: 55px;
-            height: 55px;
+            display: grid;
+            place-items: center;
 
             margin:
                 0 auto 17px;
 
-            display: grid;
-
-            place-items: center;
-
             border-radius: 50%;
 
-            background:
-                #fff0f4;
+            background: var(--pink-light);
 
-            color: var(--rosa-forte);
-
-            font-family: Georgia, serif;
-
-            font-size: 20px;
-        }
-
-
-        .process-item h3 {
+            color: var(--pink-deep);
 
             font-family: Georgia, serif;
 
             font-size: 21px;
+        }
 
+        .process-item h3 {
+            color: var(--text-dark);
+
+            font-family: Georgia, serif;
+
+            font-size: 21px;
             font-weight: 500;
         }
 
-
         .process-item p {
-
             margin-top: 8px;
 
-            color: var(--cinza);
+            color: var(--muted);
 
             font-size: 14px;
         }
 
 
-        /* =====================================================
-           LOCALIZAÇÃO
-        ===================================================== */
+        /* =========================================================
+           LOCATION
+        ========================================================= */
 
         .location {
-
-            background:
-                var(--creme);
+            background: var(--pink-soft);
         }
 
-
         .location-grid {
-
             display: grid;
 
             grid-template-columns:
                 .75fr
                 1.25fr;
 
-            gap: 25px;
-
-            align-items: stretch;
+            gap: 24px;
         }
 
+        .location-card {
+            padding: 38px;
 
-        .location-info {
-
-            padding: 35px;
-
-            border-radius: 24px;
-
-            background: #fff;
+            background: #FFFFFF;
 
             border:
                 1px solid
-                var(--borda);
+                var(--border);
+
+            border-radius: 25px;
         }
 
-
-        .location-info h3 {
+        .location-card h3 {
+            color: var(--text-dark);
 
             font-family: Georgia, serif;
 
-            font-size: 28px;
-
+            font-size: 29px;
             font-weight: 500;
-
-            color: #483b3f;
         }
 
-
-        .location-info p {
-
+        .location-card p {
             margin-top: 15px;
 
-            color: var(--cinza);
+            color: var(--muted);
 
-            font-size: 16px;
+            font-size: 15px;
         }
 
-
         .cities {
-
             display: flex;
-
             flex-wrap: wrap;
 
             gap: 8px;
 
-            margin-top: 20px;
+            margin-top: 22px;
         }
 
-
         .city {
-
             padding:
                 7px 12px;
 
             border-radius: 20px;
 
-            background:
-                #fff1f4;
+            background: var(--pink-light);
 
-            color:
-                var(--rosa-forte);
+            color: var(--pink-deep);
 
-            font-size: 12px;
-
-            font-weight: 700;
+            font-size: 11px;
+            font-weight: 800;
         }
 
-
-        .map {
-
-            min-height: 360px;
-
-            border-radius: 24px;
+        .location-map {
+            min-height: 370px;
 
             overflow: hidden;
 
-            background: #f7eef0;
+            border-radius: 25px;
+
+            background: #F8EEF1;
 
             border:
                 1px solid
-                var(--borda);
+                var(--border);
         }
 
-
-        .map > div {
-
+        .location-map [data-v8-maps-embed] {
             width: 100%;
-            height: 100%;
+            min-height: 370px;
+        }
 
-            min-height: 360px;
+        .location-map iframe {
+            width: 100%;
+            min-height: 370px;
+
+            display: block;
+
+            border: 0;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            FAQ
-        ===================================================== */
+        ========================================================= */
 
         .faq {
-
-            background: #fff;
+            background: #FFFFFF;
         }
-
 
         .faq-list {
-
             max-width: 850px;
 
-            margin: auto;
-
             display: grid;
-
             gap: 12px;
+
+            margin-inline: auto;
         }
 
-
         details {
+            padding: 20px 22px;
+
+            background: #FFFAFB;
 
             border:
                 1px solid
-                var(--borda);
+                var(--border);
 
-            border-radius: 16px;
-
-            background: #fffafb;
-
-            padding: 18px 20px;
+            border-radius: 17px;
         }
 
-
         summary {
+            position: relative;
+
+            padding-right: 25px;
 
             cursor: pointer;
 
             list-style: none;
 
-            font-weight: 700;
+            color: var(--text-dark);
 
-            color: #514347;
-
-            padding-right: 20px;
-
-            position: relative;
+            font-size: 15px;
+            font-weight: 800;
         }
-
 
         summary::-webkit-details-marker {
             display: none;
         }
 
-
         summary::after {
-
             content: "+";
 
             position: absolute;
 
             right: 0;
+            top: -4px;
 
-            color: var(--dourado);
+            color: var(--gold);
 
-            font-size: 20px;
+            font-size: 21px;
         }
-
 
         details[open] summary::after {
             content: "−";
         }
 
-
         details p {
+            margin-top: 13px;
 
-            margin-top: 12px;
-
-            color: var(--cinza);
+            color: var(--muted);
 
             font-size: 14px;
         }
 
 
-        /* =====================================================
-           CTA
-        ===================================================== */
+        /* =========================================================
+           FINAL CTA
+        ========================================================= */
 
         .final-cta {
-
             padding:
-                100px 0;
+                110px 0;
 
             text-align: center;
 
@@ -1367,210 +1309,171 @@
 
                 radial-gradient(
                     circle at 50% 100%,
-                    rgba(255,214,224,.8),
+                    rgba(255,214,224,.95),
                     transparent 55%
                 ),
 
-                #fff8fa;
+                #FFF8FA;
         }
 
-
         .final-cta h2 {
+            max-width: 800px;
 
-            max-width: 780px;
+            margin-inline: auto;
 
-            margin: auto;
+            color: var(--text-dark);
 
             font-family: Georgia, serif;
 
             font-size:
-                clamp(35px, 5vw, 56px);
+                clamp(38px, 5vw, 58px);
 
-            line-height: 1.08;
+            line-height: 1.07;
 
             font-weight: 500;
-
-            color: #44373b;
         }
 
-
         .final-cta p {
-
             max-width: 620px;
 
             margin:
                 18px auto 30px;
 
-            color: var(--cinza);
+            color: var(--muted);
 
             font-size: 17px;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            FOOTER
-        ===================================================== */
+        ========================================================= */
 
         footer {
-
             padding: 35px 0;
 
-            background: #fff;
+            background: #FFFFFF;
 
             border-top:
                 1px solid
-                var(--borda);
+                var(--border);
 
-            color: #88777c;
+            color: #8A797E;
 
             font-size: 13px;
         }
 
-
         .footer-content {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
 
             gap: 20px;
         }
 
+        .footer-instagram {
+            color: var(--pink-deep);
 
-        .footer-social {
-
-            display: flex;
-
-            gap: 15px;
-
-            color: var(--rosa-forte);
-
-            font-weight: 700;
+            font-weight: 800;
         }
 
 
-        /* =====================================================
+        /* =========================================================
            WHATSAPP FIXO
-        ===================================================== */
+        ========================================================= */
 
         .whatsapp-fixed {
-
             position: fixed;
 
             right: 20px;
             bottom: 20px;
 
-            z-index: 50;
+            z-index: 100;
 
-            width: 58px;
-            height: 58px;
+            width: 59px;
+            height: 59px;
 
             display: grid;
-
             place-items: center;
 
             border-radius: 50%;
 
-            background:
-                #25D366;
+            background: var(--green);
 
-            color: white;
+            color: #FFFFFF;
 
-            font-size: 24px;
+            font-size: 25px;
 
             box-shadow:
                 0 12px 30px
                 rgba(37,211,102,.28);
 
-            transition: .2s;
+            transition: transform .2s ease;
         }
 
-
         .whatsapp-fixed:hover {
-
             transform: translateY(-3px);
         }
 
 
-        /* =====================================================
-           RESPONSIVO
-        ===================================================== */
+        /* =========================================================
+           MOBILE
+        ========================================================= */
 
-        @media (max-width: 950px) {
+        @media (max-width: 1000px) {
 
             .nav-links {
                 display: none;
             }
 
-
             .hero-grid,
             .about-grid,
             .location-grid {
-
                 grid-template-columns: 1fr;
-
             }
-
 
             .hero {
-
-                padding-top: 125px;
+                padding-top: 130px;
             }
 
-
             .hero-visual {
-
                 min-height: 430px;
             }
 
-
             .cards,
             .service-grid {
-
                 grid-template-columns:
                     repeat(2, 1fr);
-
             }
-
 
             .process-grid {
-
                 grid-template-columns:
                     repeat(2, 1fr);
-
             }
-
 
             .jewelry-grid {
-
                 grid-template-columns:
                     repeat(3, 1fr);
-
             }
 
+            .safety-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
 
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
 
             .container {
-
                 width:
                     calc(100% - 28px);
-
             }
-
 
             section {
-
-                padding: 70px 0;
+                padding: 75px 0;
             }
 
-
             .hero {
-
                 min-height: auto;
 
                 padding:
@@ -1578,57 +1481,58 @@
                     70px;
             }
 
+            .hero h1 {
+                font-size: 47px;
+            }
 
             .hero-actions {
-
                 flex-direction: column;
             }
 
-
-            .hero-actions .btn {
-
+            .hero-actions .button {
                 width: 100%;
             }
 
-
-            .visual-circle {
-
+            .hero-circle {
                 width: 330px;
             }
 
-
-            .visual-content {
-
+            .hero-card {
                 width: 78%;
 
-                padding: 25px;
+                padding:
+                    28px 20px;
             }
-
 
             .cards,
             .service-grid,
             .process-grid {
-
                 grid-template-columns: 1fr;
-
             }
-
 
             .jewelry-grid {
-
                 grid-template-columns:
                     repeat(2, 1fr);
-
             }
 
+            .v8-gallery {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
 
             .footer-content {
-
                 flex-direction: column;
 
                 text-align: center;
             }
 
+            .whatsapp-fixed {
+                width: 55px;
+                height: 55px;
+
+                right: 15px;
+                bottom: 15px;
+            }
         }
 
     </style>
@@ -1639,32 +1543,31 @@
 <body>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          HEADER
-    ====================================================== -->
+    ========================================================== -->
 
-    <header>
+    <header class="site-header">
 
         <div class="container nav">
 
             <a
-                href="#"
+                href="#inicio"
                 class="brand"
+                aria-label="Elaine Maidana Furo Humanizado"
             >
 
-                <div class="brand-symbol">
+                <div class="brand-mark">
                     E
                 </div>
 
-                <div class="brand-text">
+                <div>
 
-                    <strong
-                        data-v8="content.name"
-                    >
+                    <span class="brand-name">
                         Elaine Maidana
-                    </strong>
+                    </span>
 
-                    <span>
+                    <span class="brand-subtitle">
                         Furo Humanizado
                     </span>
 
@@ -1687,14 +1590,18 @@
                     Joias
                 </a>
 
+                <a href="#galeria">
+                    Galeria
+                </a>
+
                 <a href="#localizacao">
-                    Localização
+                    Atendimento
                 </a>
 
                 <a
                     href="#"
                     data-v8="social.instagram"
-                    class="nav-cta"
+                    class="nav-instagram"
                 >
                     Instagram
                 </a>
@@ -1706,17 +1613,26 @@
     </header>
 
 
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
 
     <main>
 
-        <section class="hero">
+
+        <!-- =====================================================
+             HERO
+        ====================================================== -->
+
+        <section
+            id="inicio"
+            class="hero"
+        >
 
             <div class="container hero-grid">
 
-                <div>
+
+                <div class="hero-content">
 
                     <span class="hero-badge">
                         ✦ Furo Humanizado
@@ -1724,24 +1640,19 @@
 
 
                     <h1>
-
                         Furo humanizado
-                        <span>
+                        <em>
                             com amor,
                             segurança e cuidado.
-                        </span>
-
+                        </em>
                     </h1>
 
 
-                    <p
-                        class="hero-description"
-                    >
-                        Atendimento humanizado para bebês,
-                        crianças e adultos, com técnica,
-                        biossegurança e joias escolhidas
-                        para proporcionar uma experiência
-                        mais tranquila.
+                    <p class="hero-text">
+                        Uma experiência mais acolhedora para
+                        bebês, crianças e adultos, com atenção
+                        à biossegurança e ao cuidado em cada
+                        etapa do atendimento.
                     </p>
 
 
@@ -1750,7 +1661,7 @@
                         <a
                             href="#"
                             data-v8="contact.whatsapp"
-                            class="btn btn-primary"
+                            class="button button-primary"
                         >
                             Agendar pelo WhatsApp
                         </a>
@@ -1759,9 +1670,9 @@
                         <a
                             href="#"
                             data-v8="social.instagram"
-                            class="btn btn-secondary"
+                            class="button button-secondary"
                         >
-                            Conhecer no Instagram
+                            Conhecer o Instagram
                         </a>
 
                     </div>
@@ -1777,11 +1688,11 @@
 
                 <div class="hero-visual">
 
-                    <div class="visual-circle">
+                    <div class="hero-circle">
 
-                        <div class="visual-content">
+                        <div class="hero-card">
 
-                            <div class="visual-icon">
+                            <div class="hero-heart">
                                 ♡
                             </div>
 
@@ -1798,7 +1709,7 @@
                             </p>
 
 
-                            <span class="visual-tag">
+                            <span class="hero-tag">
                                 Cuidado • Segurança • Amor
                             </span>
 
@@ -1813,35 +1724,36 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              DIFERENCIAIS
-        ================================================== -->
+        ====================================================== -->
 
         <section class="differentials">
 
             <div class="container">
 
-                <div class="heading-center">
+
+                <div class="center-heading">
 
                     <span class="section-label">
-                        POR QUE ESCOLHER
+                        DIFERENCIAIS
                     </span>
 
                     <h2 class="section-title">
-                        Cuidado em cada detalhe
+                        Cuidado em cada detalhe.
                     </h2>
 
-                    <p class="section-text"
-                       style="margin-left:auto;margin-right:auto;">
-                        Uma experiência pensada para trazer
-                        mais tranquilidade para mães,
-                        mulheres e toda a família.
+                    <p class="section-description">
+                        O furo humanizado une técnica,
+                        acolhimento e atenção para tornar
+                        esse momento mais tranquilo.
                     </p>
 
                 </div>
 
 
                 <div class="cards">
+
 
                     <article class="card">
 
@@ -1854,8 +1766,10 @@
                         </h3>
 
                         <p>
-                            Atendimento baseado em cuidados
-                            e práticas de biossegurança.
+                            Atendimento realizado por uma
+                            profissional Técnica de Enfermagem,
+                            com atenção aos cuidados de
+                            biossegurança.
                         </p>
 
                     </article>
@@ -1872,8 +1786,9 @@
                         </h3>
 
                         <p>
-                            Opções em titânio biocompatível,
-                            zircônia e outras joias.
+                            Joias em materiais escolhidos
+                            para oferecer conforto e segurança,
+                            incluindo opções em titânio.
                         </p>
 
                     </article>
@@ -1890,7 +1805,8 @@
                         </h3>
 
                         <p>
-                            Atendimento domiciliar em
+                            Você recebe o atendimento no
+                            conforto da sua casa, em
                             Porto Alegre e Canoas.
                         </p>
 
@@ -1904,16 +1820,17 @@
                         </div>
 
                         <h3>
-                            Pós-furo
+                            Cuidados pós-furo
                         </h3>
 
                         <p>
-                            Orientações e kit de cuidados
-                            para acompanhar o processo
-                            após o procedimento.
+                            Orientações e cuidados para
+                            acompanhar corretamente o
+                            período após o procedimento.
                         </p>
 
                     </article>
+
 
                 </div>
 
@@ -1922,9 +1839,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              SOBRE
-        ================================================== -->
+        ====================================================== -->
 
         <section
             id="sobre"
@@ -1933,9 +1850,14 @@
 
             <div class="container about-grid">
 
+
                 <div class="about-visual">
 
                     <div class="about-card">
+
+                        <div class="about-card-symbol">
+                            ♡
+                        </div>
 
                         <strong>
                             Elaine Maidana
@@ -1944,17 +1866,6 @@
                         <span>
                             Furo Humanizado
                         </span>
-
-                        <div
-                            style="
-                                margin-top:25px;
-                                color:#d98b9f;
-                                font-size:45px;
-                                font-family:Georgia,serif;
-                            "
-                        >
-                            ♡
-                        </div>
 
                     </div>
 
@@ -1969,10 +1880,8 @@
 
 
                     <h2 class="section-title">
-
                         Um cuidado pensado
                         para você.
-
                     </h2>
 
 
@@ -1987,14 +1896,14 @@
                     <p>
                         O atendimento é realizado em domicílio,
                         com atenção à biossegurança, materiais
-                        estéreis e descartáveis e orientação
+                        estéreis e descartáveis e orientações
                         para os cuidados após o furo.
                     </p>
 
 
-                    <div class="about-points">
+                    <div class="about-list">
 
-                        <div class="about-point">
+                        <div class="about-list-item">
 
                             <span class="check">
                                 ✓
@@ -2007,7 +1916,7 @@
                         </div>
 
 
-                        <div class="about-point">
+                        <div class="about-list-item">
 
                             <span class="check">
                                 ✓
@@ -2021,7 +1930,7 @@
                         </div>
 
 
-                        <div class="about-point">
+                        <div class="about-list-item">
 
                             <span class="check">
                                 ✓
@@ -2029,6 +1938,20 @@
 
                             <span>
                                 Atendimento domiciliar
+                            </span>
+
+                        </div>
+
+
+                        <div class="about-list-item">
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                            <span>
+                                Orientações de cuidados
+                                após o procedimento
                             </span>
 
                         </div>
@@ -2042,9 +1965,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              SERVIÇOS
-        ================================================== -->
+        ====================================================== -->
 
         <section
             id="servicos"
@@ -2053,20 +1976,28 @@
 
             <div class="container">
 
-                <div class="heading-center">
+
+                <div class="center-heading">
 
                     <span class="section-label">
                         SERVIÇOS
                     </span>
 
                     <h2 class="section-title">
-                        Encontre o cuidado ideal
+                        Encontre o cuidado ideal.
                     </h2>
+
+                    <p class="section-description">
+                        Do primeiro furinho aos projetos
+                        de orelha, cada atendimento é
+                        pensado de forma individual.
+                    </p>
 
                 </div>
 
 
                 <div class="service-grid">
+
 
                     <article class="service">
 
@@ -2079,7 +2010,7 @@
                         </h3>
 
                         <p>
-                            Uma experiência mais acolhedora
+                            Uma experiência acolhedora
                             para o primeiro furinho dos
                             pequenos.
                         </p>
@@ -2099,8 +2030,8 @@
 
                         <p>
                             Planejamento personalizado
-                            para construir uma composição
-                            harmônica na orelha.
+                            para criar uma composição
+                            harmoniosa e delicada.
                         </p>
 
                     </article>
@@ -2113,12 +2044,12 @@
                         </span>
 
                         <h3>
-                            Piercing de Cartilagem
+                            Piercings de Cartilagem
                         </h3>
 
                         <p>
-                            Opções como hélix, tragus,
-                            conch, daith e rook.
+                            Hélix, tragus, conch, daith,
+                            rook e outras possibilidades.
                         </p>
 
                     </article>
@@ -2135,11 +2066,12 @@
                         </h3>
 
                         <p>
-                            Escolha de joias para diferentes
+                            Opções de joias para diferentes
                             estilos e projetos de orelha.
                         </p>
 
                     </article>
+
 
                 </div>
 
@@ -2148,9 +2080,143 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
+             SEGURANÇA
+        ====================================================== -->
+
+        <section class="safety">
+
+            <div class="container">
+
+
+                <div class="center-heading">
+
+                    <span class="section-label">
+                        SEGURANÇA
+                    </span>
+
+                    <h2 class="section-title">
+                        Técnica e cuidado
+                        em primeiro lugar.
+                    </h2>
+
+                </div>
+
+
+                <div class="safety-grid">
+
+
+                    <article class="safety-card">
+
+                        <h3>
+                            Biossegurança
+                        </h3>
+
+                        <p>
+                            O atendimento é realizado com
+                            atenção às práticas de biossegurança
+                            e aos materiais utilizados durante
+                            o procedimento.
+                        </p>
+
+
+                        <div class="safety-points">
+
+                            <div class="safety-point">
+                                <span class="check">✓</span>
+
+                                <span>
+                                    Materiais estéreis e
+                                    descartáveis
+                                </span>
+                            </div>
+
+
+                            <div class="safety-point">
+                                <span class="check">✓</span>
+
+                                <span>
+                                    Atendimento com cuidado
+                                    e organização
+                                </span>
+                            </div>
+
+
+                            <div class="safety-point">
+                                <span class="check">✓</span>
+
+                                <span>
+                                    Orientações de cuidados
+                                    pós-furo
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="safety-card">
+
+                        <h3>
+                            Titânio biocompatível
+                        </h3>
+
+                        <p>
+                            Entre as opções disponíveis estão
+                            joias em titânio biocompatível,
+                            além de outras possibilidades
+                            conforme o projeto.
+                        </p>
+
+
+                        <div class="safety-points">
+
+                            <div class="safety-point">
+                                <span class="check">✓</span>
+
+                                <span>
+                                    <strong>
+                                        Titânio
+                                    </strong>
+                                    biocompatível
+                                </span>
+                            </div>
+
+
+                            <div class="safety-point">
+                                <span class="check">✓</span>
+
+                                <span>
+                                    Opções em zircônia
+                                </span>
+                            </div>
+
+
+                            <div class="safety-point">
+                                <span class="check">✓</span>
+
+                                <span>
+                                    Diferentes estilos
+                                    de joias
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
              JOIAS
-        ================================================== -->
+        ====================================================== -->
 
         <section
             id="joias"
@@ -2159,22 +2225,20 @@
 
             <div class="container">
 
-                <div class="heading-center">
+
+                <div class="center-heading">
 
                     <span class="section-label">
                         JOIAS
                     </span>
 
                     <h2 class="section-title">
-                        Delicadeza nos detalhes
+                        Delicadeza nos detalhes.
                     </h2>
 
-                    <p
-                        class="section-text"
-                        style="margin-left:auto;margin-right:auto;"
-                    >
-                        Conheça algumas das possibilidades
-                        para compor seu projeto de orelha.
+                    <p class="section-description">
+                        Algumas possibilidades para
+                        complementar seu projeto de orelha.
                     </p>
 
                 </div>
@@ -2219,28 +2283,71 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
+             GALERIA
+             CONTROLADA PELO V8 LOADER
+        ====================================================== -->
+
+        <section
+            id="galeria"
+            class="gallery"
+        >
+
+            <div class="container">
+
+
+                <div class="center-heading">
+
+                    <span class="section-label">
+                        GALERIA
+                    </span>
+
+                    <h2 class="section-title">
+                        Resultados e projetos.
+                    </h2>
+
+                    <p class="section-description">
+                        Conheça os trabalhos realizados
+                        por Elaine.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="v8-gallery"
+                    data-v8-gallery
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
              COMO FUNCIONA
-        ================================================== -->
+        ====================================================== -->
 
         <section class="process">
 
             <div class="container">
 
-                <div class="heading-center">
+
+                <div class="center-heading">
 
                     <span class="section-label">
                         COMO FUNCIONA
                     </span>
 
                     <h2 class="section-title">
-                        Do agendamento ao cuidado
+                        Do agendamento ao cuidado.
                     </h2>
 
                 </div>
 
 
                 <div class="process-grid">
+
 
                     <article class="process-item">
 
@@ -2254,7 +2361,7 @@
 
                         <p>
                             Entre em contato pelo WhatsApp
-                            e combine o atendimento.
+                            para conversar sobre seu atendimento.
                         </p>
 
                     </article>
@@ -2267,7 +2374,7 @@
                         </div>
 
                         <h3>
-                            Visita
+                            Visita domiciliar
                         </h3>
 
                         <p>
@@ -2285,12 +2392,12 @@
                         </div>
 
                         <h3>
-                            Furo
+                            Procedimento
                         </h3>
 
                         <p>
-                            O procedimento é realizado
-                            com cuidado e atenção.
+                            O furo é realizado com
+                            cuidado e atenção.
                         </p>
 
                     </article>
@@ -2303,15 +2410,16 @@
                         </div>
 
                         <h3>
-                            Cuidados
+                            Pós-furo
                         </h3>
 
                         <p>
-                            Você recebe orientações para
-                            os cuidados após o procedimento.
+                            Você recebe orientações
+                            para os cuidados necessários.
                         </p>
 
                     </article>
+
 
                 </div>
 
@@ -2320,9 +2428,10 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              LOCALIZAÇÃO
-        ================================================== -->
+             CONTROLADA PELO V8 LOADER
+        ====================================================== -->
 
         <section
             id="localizacao"
@@ -2331,22 +2440,20 @@
 
             <div class="container">
 
-                <div class="heading-center">
+
+                <div class="center-heading">
 
                     <span class="section-label">
                         ATENDIMENTO
                     </span>
 
                     <h2 class="section-title">
-                        Onde acontece
+                        Atendimento onde você está.
                     </h2>
 
-                    <p
-                        class="section-text"
-                        style="margin-left:auto;margin-right:auto;"
-                    >
-                        Atendimento domiciliar em
-                        Porto Alegre e Canoas.
+                    <p class="section-description">
+                        Elaine realiza atendimento domiciliar
+                        em Porto Alegre e Canoas.
                     </p>
 
                 </div>
@@ -2354,18 +2461,24 @@
 
                 <div class="location-grid">
 
-                    <div class="location-info">
+
+                    <div class="location-card">
 
                         <h3>
                             Atendimento domiciliar
                         </h3>
 
 
+                        <p>
+                            O atendimento é realizado no
+                            conforto da sua casa.
+                        </p>
+
+
                         <p
                             data-v8="content.address"
                         >
-                            Porto Alegre e Canoas —
-                            atendimento em domicílio.
+                            Porto Alegre e Canoas.
                         </p>
 
 
@@ -2387,7 +2500,7 @@
                             <a
                                 href="#"
                                 data-v8="contact.whatsapp"
-                                class="btn btn-primary"
+                                class="button button-primary"
                             >
                                 Agendar atendimento
                             </a>
@@ -2397,13 +2510,14 @@
                     </div>
 
 
-                    <div class="map">
+                    <div class="location-map">
 
                         <div
                             data-v8-maps-embed
                         ></div>
 
                     </div>
+
 
                 </div>
 
@@ -2412,22 +2526,23 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              FAQ
-        ================================================== -->
+        ====================================================== -->
 
         <section class="faq">
 
             <div class="container">
 
-                <div class="heading-center">
+
+                <div class="center-heading">
 
                     <span class="section-label">
                         DÚVIDAS
                     </span>
 
                     <h2 class="section-title">
-                        Perguntas frequentes
+                        Perguntas frequentes.
                     </h2>
 
                 </div>
@@ -2435,17 +2550,18 @@
 
                 <div class="faq-list">
 
+
                     <details>
 
                         <summary>
-                            Furo humanizado dói?
+                            O furo humanizado dói?
                         </summary>
 
                         <p>
-                            A experiência de cada pessoa pode variar.
-                            O atendimento é realizado buscando oferecer
-                            acolhimento, cuidado e uma experiência
-                            mais tranquila.
+                            A percepção pode variar de pessoa
+                            para pessoa. A proposta do atendimento
+                            humanizado é tornar a experiência
+                            mais acolhedora e tranquila.
                         </p>
 
                     </details>
@@ -2458,9 +2574,9 @@
                         </summary>
 
                         <p>
-                            A indicação e as condições para realização
-                            devem ser avaliadas individualmente durante
-                            o atendimento.
+                            A indicação depende da idade,
+                            condições individuais e avaliação
+                            adequada para cada atendimento.
                         </p>
 
                     </details>
@@ -2469,14 +2585,15 @@
                     <details>
 
                         <summary>
-                            O que é o titânio?
+                            Por que escolher uma joia de titânio?
                         </summary>
 
                         <p>
-                            O titânio é um material utilizado em joias
-                            corporais por sua biocompatibilidade e
-                            características adequadas para determinados
-                            procedimentos.
+                            O titânio é utilizado em joias
+                            corporais por suas características
+                            de biocompatibilidade. A escolha
+                            da joia deve considerar o procedimento
+                            e a orientação profissional.
                         </p>
 
                     </details>
@@ -2485,16 +2602,31 @@
                     <details>
 
                         <summary>
-                            Posso dormir em cima do piercing?
+                            Posso dormir sobre o piercing?
                         </summary>
 
                         <p>
-                            Durante a cicatrização, é importante seguir
-                            as orientações específicas de cuidados
+                            Durante a cicatrização, é recomendado
+                            seguir as orientações de cuidados
                             fornecidas após o procedimento.
                         </p>
 
                     </details>
+
+
+                    <details>
+
+                        <summary>
+                            O atendimento é em domicílio?
+                        </summary>
+
+                        <p>
+                            Sim. Elaine realiza atendimento
+                            domiciliar em Porto Alegre e Canoas.
+                        </p>
+
+                    </details>
+
 
                 </div>
 
@@ -2503,9 +2635,9 @@
         </section>
 
 
-        <!-- =================================================
+        <!-- =====================================================
              CTA FINAL
-        ================================================== -->
+        ====================================================== -->
 
         <section class="final-cta">
 
@@ -2526,7 +2658,7 @@
                 <a
                     href="#"
                     data-v8="contact.whatsapp"
-                    class="btn btn-primary"
+                    class="button button-primary"
                 >
                     Agendar pelo WhatsApp
                 </a>
@@ -2535,67 +2667,57 @@
 
         </section>
 
+
     </main>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          FOOTER
-    ====================================================== -->
+    ========================================================== -->
 
     <footer>
 
         <div class="container footer-content">
 
             <div>
-
                 ©
                 <span id="year"></span>
-
-                <strong
-                    data-v8="content.name"
-                >
-                    Elaine Maidana
-                </strong>
-
-                — Furo Humanizado
-
+                Elaine Maidana — Furo Humanizado
             </div>
 
 
-            <div class="footer-social">
-
-                <a
-                    href="#"
-                    data-v8="social.instagram"
-                >
-                    @elainemaidanafurohumanizado
-                </a>
-
-            </div>
+            <a
+                href="#"
+                data-v8="social.instagram"
+                class="footer-instagram"
+            >
+                @elainemaidanafurohumanizado
+            </a>
 
         </div>
 
     </footer>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          WHATSAPP FIXO
          O V8 LOADER DEFINE O LINK
-    ====================================================== -->
+    ========================================================== -->
 
     <a
         href="#"
         data-v8="contact.whatsapp"
         class="whatsapp-fixed"
-        aria-label="Falar pelo WhatsApp"
+        aria-label="Agendar pelo WhatsApp"
+        title="Agendar pelo WhatsApp"
     >
         ✆
     </a>
 
 
-    <!-- =====================================================
+    <!-- =========================================================
          ANO
-    ====================================================== -->
+    ========================================================== -->
 
     <script>
 
@@ -2605,10 +2727,10 @@
     </script>
 
 
-    <!-- =====================================================
-         V8 LOADER
+    <!-- =========================================================
+         V8 ADMIN UNIVERSAL — LOADER
          NÃO ALTERAR
-    ====================================================== -->
+    ========================================================== -->
 
     <script
         src="js/v8-loader.js"
