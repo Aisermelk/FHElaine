@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -12,25 +11,24 @@
 
     <meta
         name="description"
-        content="Elaine Maidana | Furo Humanizado. Atendimento domiciliar para bebês, crianças e adultos em Porto Alegre e Canoas, com acolhimento, segurança e cuidado."
+        content="Elaine Maidana — Furo Humanizado. Atendimento domiciliar para bebês, crianças e adultos em Porto Alegre e Canoas."
     >
 
     <meta
         name="theme-color"
-        content="#F9E6EA"
+        content="#FFD6E0"
     >
 
-    <meta
-        name="robots"
-        content="index, follow"
-    >
+    <title>
+        Elaine Maidana | Furo Humanizado
+    </title>
 
-    <title>Elaine Maidana | Furo Humanizado</title>
+    <link rel="stylesheet" href="css/style.css">
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
+
+    <meta property="og:title" content="Elaine Maidana | Furo Humanizado">
+    <meta property="og:description" content="Furo humanizado com acolhimento, segurança e cuidado em Porto Alegre, Canoas e região.">
+    <meta property="og:type" content="website">
 
 </head>
 
@@ -49,14 +47,14 @@
             <a
                 href="#inicio"
                 class="brand"
-                aria-label="Elaine Maidana — Furo Humanizado"
+                aria-label="Elaine Maidana Furo Humanizado"
             >
 
-                <span class="brand-mark">
+                <div class="brand-mark">
                     E
-                </span>
+                </div>
 
-                <span class="brand-info">
+                <div>
 
                     <span class="brand-name">
                         Elaine Maidana
@@ -66,131 +64,110 @@
                         Furo Humanizado
                     </span>
 
-                </span>
+                </div>
 
             </a>
 
 
-            <nav
-                class="nav-links"
-                aria-label="Navegação principal"
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="site-menu"
             >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links" id="site-menu">
 
                 <a href="#sobre">
-                    Sobre
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a6 6 0 0 0-6 6c0 4.6 6 10.9 6 10.9s6-6.3 6-10.9a6 6 0 0 0-6-6Z"/><circle cx="12" cy="9.5" r="2.1"/></svg>
+                    <span>Sobre</span>
                 </a>
 
                 <a href="#servicos">
-                    Serviços
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5h16M4 12h16M4 17.5h16"/><circle cx="7" cy="6.5" r="1.4"/><circle cx="15" cy="12" r="1.4"/><circle cx="10" cy="17.5" r="1.4"/></svg>
+                    <span>Serviços</span>
                 </a>
 
                 <a href="#joias">
-                    Joias
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 7 7-7 11L5 10l7-7Z"/><path d="m5 10 7 3 7-3M12 3v10"/></svg>
+                    <span>Joias</span>
                 </a>
 
                 <a href="#galeria">
-                    Galeria
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><circle cx="9" cy="9" r="1.5"/><path d="m5.5 17 4.5-4 3 2.5 2.2-2 3.3 3.5"/></svg>
+                    <span>Galeria</span>
                 </a>
 
-                <a href="#atendimento">
-                    Atendimento
-                </a>
-
-                <a
-                    href="#"
-                    data-v8="social.instagram"
-                    class="nav-instagram"
-                    aria-label="Instagram de Elaine Maidana"
-                >
-                    Instagram
+                <a href="#localizacao">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z"/><circle cx="12" cy="10" r="2"/></svg>
+                    <span>Atendimento</span>
                 </a>
 
             </nav>
 
+            <a
+                href="#"
+                data-v8="social.instagram"
+                class="nav-instagram"
+                aria-label="Instagram da Elaine Maidana"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.8" r="1" class="instagram-dot"/></svg>
+                <span>Instagram</span>
+            </a>
+
         </div>
+
+        <button class="menu-backdrop" type="button" aria-label="Fechar menu"></button>
 
     </header>
 
 
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
 
     <main>
 
 
         <!-- =====================================================
-             HERO — BANNER EM TELA CHEIA
+             HERO
         ====================================================== -->
 
         <section
             id="inicio"
-            class="hero hero-full"
+            class="hero"
         >
 
-            <!-- IMAGEM DO BANNER -->
-
-            <div class="hero-background">
-
-                <img
-                    src="assets/hero-elaine.webp"
-                    alt="Elaine Maidana realizando atendimento de furo humanizado"
-                    loading="eager"
-                    fetchpriority="high"
-                >
-
-            </div>
+            <div class="container hero-grid">
 
 
-            <!-- CAMADA SOBRE A FOTO -->
+                <div class="hero-content">
 
-            <div class="hero-overlay"></div>
-
-
-            <!-- CONTEÚDO SOBRE A FOTO -->
-
-            <div class="container hero-content-overlay">
-
-                <div class="hero-copy">
-
-                    <span class="hero-kicker">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3z"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.4"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-
+                    <span class="hero-badge">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3Z"/></svg>
                         Furo Humanizado
-
                     </span>
 
 
-                    <p class="hero-name">
-                        ELAINE MAIDANA
-                    </p>
-
-
                     <h1>
-
-                        O primeiro
-                        <em>brinquinho</em>
-                        merece um momento especial.
-
+                        Furo humanizado
+                        <em>
+                            com amor,
+                            segurança e cuidado.
+                        </em>
                     </h1>
 
 
                     <p class="hero-text">
-
-                        Um atendimento acolhedor, delicado
-                        e cuidadoso para transformar o momento
-                        do furo em uma experiência tranquila
-                        para você e sua família.
-
+                        Uma experiência mais acolhedora para
+                        bebês, crianças e adultos, com atenção
+                        à biossegurança e ao cuidado em cada
+                        etapa do atendimento.
                     </p>
 
 
@@ -201,31 +178,7 @@
                             data-v8="contact.whatsapp"
                             class="button button-primary"
                         >
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                    stroke-linejoin="round"
-                                />
-
-                                <path
-                                    d="M9 8.8c.2-.3.4-.3.7-.2l1.2.6c.2.1.3.3.2.6l-.5.9c.6 1.1 1.4 1.8 2.5 2.3l.8-.5c.2-.1.5-.1.6.1l.7 1.1c.2.3.1.5-.1.7-.5.5-1.1.7-1.8.5-2.5-.7-4.5-2.7-5.4-4.9-.3-.7-.1-1.2.3-1.2.3 0 .6 0 .8-.1Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.3"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-
                             Agendar pelo WhatsApp
-
                         </a>
 
 
@@ -234,209 +187,25 @@
                             data-v8="social.instagram"
                             class="button button-secondary"
                         >
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <rect
-                                    x="3.5"
-                                    y="3.5"
-                                    width="17"
-                                    height="17"
-                                    rx="5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                />
-
-                                <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                />
-
-                                <circle
-                                    cx="17.5"
-                                    cy="6.7"
-                                    r="1"
-                                    fill="currentColor"
-                                />
-                            </svg>
-
-                            Instagram
-
+                            Conhecer o Instagram
                         </a>
 
                     </div>
 
 
-                    <div class="hero-trust">
-
-                        <span>
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                />
-                            </svg>
-
-                            Atendimento humanizado
-
-                        </span>
-
-
-                        <span>
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-
-                            Técnica de Enfermagem
-
-                        </span>
-
-
-                        <span>
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M4 11.5 12 5l8 6.5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-
-                                <path
-                                    d="M6.5 10.5V19h11v-8.5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linejoin="round"
-                                />
-
-                                <path
-                                    d="M10 19v-5h4v5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                />
-                            </svg>
-
-                            Atendimento domiciliar
-
-                        </span>
-
-                    </div>
-
-
-                    <p class="hero-location">
-                        Porto Alegre • Canoas
+                    <p class="hero-note">
+                        Atendimento domiciliar em
+                        Porto Alegre e Canoas.
                     </p>
 
                 </div>
 
-            </div>
 
 
-            <!-- INDICADOR DE SCROLL -->
-
-            <a
-                href="#sobre"
-                class="hero-scroll"
-                aria-label="Conhecer mais sobre Elaine"
-            >
-
-                <span>
-                    Conheça
-                </span>
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M6 9l6 6 6-6"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-
-            </a>
-
-        </section>
-
-
-
-        <!-- =====================================================
-             INTRO
-        ====================================================== -->
-
-        <section class="intro">
-
-            <div class="container">
-
-                <div class="intro-content">
-
-                    <span class="section-label">
-                        Um momento especial
-                    </span>
-
-
-                    <h2 class="section-title">
-
-                        Mais que um furo.
-                        <em>
-                            Uma experiência de cuidado.
-                        </em>
-
-                    </h2>
-
-
-                    <div class="intro-line"></div>
-
-
-                    <p>
-
-                        Cada atendimento é pensado para que
-                        o momento seja acolhedor, seguro e
-                        tranquilo, respeitando o tempo e as
-                        necessidades de cada pessoa.
-
-                    </p>
-
-                </div>
 
             </div>
 
         </section>
-
 
 
         <!-- =====================================================
@@ -447,180 +216,93 @@
 
             <div class="container">
 
+
                 <div class="center-heading">
 
                     <span class="section-label">
-                        Por que Elaine?
+                        DIFERENCIAIS
                     </span>
 
-
                     <h2 class="section-title">
-                        Cuidado que começa antes do furo.
+                        Cuidado em cada detalhe.
                     </h2>
 
-
                     <p class="section-description">
-
-                        Do primeiro contato aos cuidados
-                        após o procedimento, cada etapa recebe
-                        atenção especial.
-
+                        O furo humanizado une técnica,
+                        acolhimento e atenção para tornar
+                        esse momento mais tranquilo.
                     </p>
 
                 </div>
 
 
-                <div class="differential-grid">
+                <div class="cards">
 
 
-                    <article class="differential-card">
+                    <article class="card">
 
-                        <div class="differential-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                />
-                            </svg>
-
-                        </div>
-
-                        <h3>
-                            Atendimento humanizado
-                        </h3>
-
-                        <p>
-
-                            Um ambiente acolhedor para
-                            tornar a experiência mais
-                            tranquila e especial.
-
-                        </p>
-
-                    </article>
-
-
-
-                    <article class="differential-card">
-
-                        <div class="differential-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-
-                        </div>
+                        <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.8 8.9c0 5.2-8.8 10.1-8.8 10.1S3.2 14.1 3.2 8.9A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.8Z"/></svg></div>
 
                         <h3>
                             Técnica de Enfermagem
                         </h3>
 
                         <p>
-
-                            Atendimento realizado por
-                            profissional Técnica de
-                            Enfermagem.
-
+                            Atendimento realizado por uma
+                            profissional Técnica de Enfermagem,
+                            com atenção aos cuidados de
+                            biossegurança.
                         </p>
 
                     </article>
 
 
+                    <article class="card">
 
-                    <article class="differential-card">
-
-                        <div class="differential-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M4 11.5 12 5l8 6.5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-
-                                <path
-                                    d="M6.5 10.5V19h11v-8.5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                />
-
-                                <path
-                                    d="M10 19v-5h4v5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                />
-
-                            </svg>
-
-                        </div>
+                        <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 13.8 9.2 20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8L12 3Z"/></svg></div>
 
                         <h3>
-                            No conforto da sua casa
+                            Joias selecionadas
                         </h3>
 
                         <p>
+                            Joias em materiais escolhidos
+                            para oferecer conforto e segurança,
+                            incluindo opções em titânio.
+                        </p>
 
-                            Atendimento domiciliar em
+                    </article>
+
+
+                    <article class="card">
+
+                        <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m4 10 8-6 8 6v9.5H4V10Z"/><path d="M9 19.5v-5h6v5"/></svg></div>
+
+                        <h3>
+                            Atendimento em casa
+                        </h3>
+
+                        <p>
+                            Você recebe o atendimento no
+                            conforto da sua casa, em
                             Porto Alegre e Canoas.
-
                         </p>
 
                     </article>
 
 
+                    <article class="card">
 
-                    <article class="differential-card">
-
-                        <div class="differential-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="m5 12 4 4L19 6"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-
-                        </div>
+                        <div class="card-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12 4.3 4.3L19 6.8"/></svg></div>
 
                         <h3>
-                            Orientação pós-furo
+                            Cuidados pós-furo
                         </h3>
 
                         <p>
-
-                            Você recebe orientações para
-                            os cuidados após o procedimento.
-
+                            Orientações e cuidados para
+                            acompanhar corretamente o
+                            período após o procedimento.
                         </p>
 
                     </article>
@@ -633,9 +315,8 @@
         </section>
 
 
-
         <!-- =====================================================
-             SOBRE ELAINE
+             SOBRE
         ====================================================== -->
 
         <section
@@ -647,233 +328,121 @@
 
 
                 <div class="about-visual">
-
-                    <div class="about-photo">
-
-                        <img
-                            src="assets/sobre-elaine.webp"
-                            alt="Elaine Maidana — Furo Humanizado"
-                            loading="lazy"
-                        >
-
+                    <div class="photo-placeholder about-photo" aria-label="Espaço para foto da Elaine">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.6"/><path d="m4.5 17 4.2-4 3.2 2.7 2.2-2 5.4 4.3"/></svg>
+                        <span>Foto da Elaine</span>
                     </div>
 
+                    <div class="about-card">
 
-                    <div class="about-badge">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.4"
-                            />
-                        </svg>
-
-                        <div>
-
-                            <strong>
-                                Elaine Maidana
-                            </strong>
-
-                            <small>
-                                Furo Humanizado
-                            </small>
-
+                        <div class="about-card-symbol">
+                            ♡
                         </div>
+
+                        <strong>
+                            Elaine Maidana
+                        </strong>
+
+                        <span>
+                            Furo Humanizado
+                        </span>
 
                     </div>
 
                 </div>
 
 
-
                 <div class="about-content">
 
                     <span class="section-label">
-                        Sobre Elaine
+                        SOBRE ELAINE
                     </span>
 
 
                     <h2 class="section-title">
-
-                        Cuidar também é
-                        <em>
-                            acolher.
-                        </em>
-
+                        Um cuidado pensado
+                        para você.
                     </h2>
 
 
                     <p>
-
                         Elaine Maidana é Técnica de Enfermagem
                         especializada em Furo Humanizado,
-                        oferecendo um atendimento delicado,
-                        acolhedor e cuidadoso.
-
+                        oferecendo uma experiência acolhedora,
+                        delicada e cuidadosa.
                     </p>
 
 
                     <p>
-
                         O atendimento é realizado em domicílio,
-                        proporcionando mais conforto para a
-                        família e atenção especial em cada etapa
-                        do procedimento.
-
+                        com atenção à biossegurança, materiais
+                        estéreis e descartáveis e orientações
+                        para os cuidados após o furo.
                     </p>
 
 
-                    <div class="about-highlights">
+                    <div class="about-list">
 
-
-                        <div class="about-highlight">
+                        <div class="about-list-item">
 
                             <span class="check">
-
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="m5 12 4 4L19 6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="1.7"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-
+                                ✓
                             </span>
 
-                            <div>
-
-                                <strong>
-                                    Biossegurança
-                                </strong>
-
-                                <span>
-                                    Atenção aos materiais e
-                                    cuidados durante o atendimento.
-                                </span>
-
-                            </div>
+                            <span>
+                                Atendimento humanizado
+                            </span>
 
                         </div>
 
 
-
-                        <div class="about-highlight">
+                        <div class="about-list-item">
 
                             <span class="check">
-
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="m5 12 4 4L19 6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="1.7"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-
+                                ✓
                             </span>
 
-                            <div>
-
-                                <strong>
-                                    Atendimento individualizado
-                                </strong>
-
-                                <span>
-                                    Cada pessoa recebe atenção
-                                    de acordo com suas necessidades.
-                                </span>
-
-                            </div>
+                            <span>
+                                Biossegurança e materiais
+                                adequados
+                            </span>
 
                         </div>
 
 
-
-                        <div class="about-highlight">
+                        <div class="about-list-item">
 
                             <span class="check">
-
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="m5 12 4 4L19 6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="1.7"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-
+                                ✓
                             </span>
 
-                            <div>
-
-                                <strong>
-                                    Orientação pós-furo
-                                </strong>
-
-                                <span>
-                                    Cuidados e orientações para
-                                    acompanhar a recuperação.
-                                </span>
-
-                            </div>
+                            <span>
+                                Atendimento domiciliar
+                            </span>
 
                         </div>
 
+
+                        <div class="about-list-item">
+
+                            <span class="check">
+                                ✓
+                            </span>
+
+                            <span>
+                                Orientações de cuidados
+                                após o procedimento
+                            </span>
+
+                        </div>
 
                     </div>
-
-
-                    <a
-                        href="#"
-                        data-v8="contact.whatsapp"
-                        class="text-link"
-                    >
-
-                        Quero conversar com a Elaine
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M5 12h13M13 6l6 6-6 6"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-
-                    </a>
 
                 </div>
 
             </div>
 
         </section>
-
 
 
         <!-- =====================================================
@@ -891,20 +460,17 @@
                 <div class="center-heading">
 
                     <span class="section-label">
-                        Serviços
+                        SERVIÇOS
                     </span>
 
-
                     <h2 class="section-title">
-                        Um cuidado para cada momento.
+                        Encontre o cuidado ideal.
                     </h2>
 
-
                     <p class="section-description">
-
-                        Escolha o atendimento que combina
-                        com você, seu estilo e seu projeto.
-
+                        Do primeiro furinho aos projetos
+                        de orelha, cada atendimento é
+                        pensado de forma individual.
                     </p>
 
                 </div>
@@ -913,272 +479,64 @@
                 <div class="service-grid">
 
 
-                    <article class="service-card">
+                    <article class="service">
+                        <div class="service-media" aria-label="Espaço para foto do Furinho Humanizado Baby"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a6 6 0 0 0-6 6c0 4.6 6 10.9 6 10.9s6-6.3 6-10.9a6 6 0 0 0-6-6Z"/><circle cx="12" cy="9.5" r="2.1"/></svg><span>Foto do serviço</span></div>
 
-                        <div class="service-image">
+                        <h3>
+                            Furinho Humanizado Baby
+                        </h3>
 
-                            <img
-                                src="assets/servico-baby.webp"
-                                alt="Furo humanizado para bebê"
-                                loading="lazy"
-                            >
-
-                            <span class="service-label">
-                                Baby
-                            </span>
-
-                        </div>
-
-
-                        <div class="service-content">
-
-                            <span class="service-category">
-                                Para os pequenos
-                            </span>
-
-
-                            <h3>
-                                Furinho Humanizado Baby
-                            </h3>
-
-
-                            <p>
-
-                                Um momento delicado para o
-                                primeiro brinquinho, com
-                                acolhimento e atenção especial.
-
-                            </p>
-
-
-                            <a
-                                href="#"
-                                data-v8="contact.whatsapp"
-                                class="service-link"
-                            >
-
-                                Saber mais
-
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="M5 12h13M13 6l6 6-6 6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-
-                            </a>
-
-                        </div>
+                        <p>
+                            Uma experiência acolhedora
+                            para o primeiro furinho dos
+                            pequenos.
+                        </p>
 
                     </article>
 
 
+                    <article class="service">
+                        <div class="service-media" aria-label="Espaço para foto do Projeto de Orelha"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M6 12v3.5A2.5 2.5 0 0 0 8.5 18H10v-6H7.5A2.5 2.5 0 0 0 5 14.5"/><path d="M18 12v3.5a2.5 2.5 0 0 1-2.5 2.5H14v-6h2.5a2.5 2.5 0 0 1 2.5 2.5"/></svg><span>Foto do serviço</span></div>
 
-                    <article class="service-card">
+                        <h3>
+                            Projeto de Orelha
+                        </h3>
 
-                        <div class="service-image">
-
-                            <img
-                                src="assets/servico-projeto.webp"
-                                alt="Projeto de orelha com joias"
-                                loading="lazy"
-                            >
-
-                            <span class="service-label">
-                                Projeto
-                            </span>
-
-                        </div>
-
-
-                        <div class="service-content">
-
-                            <span class="service-category">
-                                Personalização
-                            </span>
-
-
-                            <h3>
-                                Projeto de Orelha
-                            </h3>
-
-
-                            <p>
-
-                                Planejamento de uma composição
-                                harmoniosa, delicada e pensada
-                                para cada pessoa.
-
-                            </p>
-
-
-                            <a
-                                href="#"
-                                data-v8="contact.whatsapp"
-                                class="service-link"
-                            >
-
-                                Criar meu projeto
-
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="M5 12h13M13 6l6 6-6 6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-
-                            </a>
-
-                        </div>
+                        <p>
+                            Planejamento personalizado
+                            para criar uma composição
+                            harmoniosa e delicada.
+                        </p>
 
                     </article>
 
 
+                    <article class="service">
+                        <div class="service-media" aria-label="Espaço para foto de Piercings de Cartilagem"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="2.3"/><path d="M12 4.5V2.8M12 21.2v-1.7"/></svg><span>Foto do serviço</span></div>
 
-                    <article class="service-card">
+                        <h3>
+                            Piercings de Cartilagem
+                        </h3>
 
-                        <div class="service-image">
-
-                            <img
-                                src="assets/servico-piercing.webp"
-                                alt="Piercing de cartilagem"
-                                loading="lazy"
-                            >
-
-                            <span class="service-label">
-                                Piercing
-                            </span>
-
-                        </div>
-
-
-                        <div class="service-content">
-
-                            <span class="service-category">
-                                Piercings
-                            </span>
-
-
-                            <h3>
-                                Piercings de Cartilagem
-                            </h3>
-
-
-                            <p>
-
-                                Hélix, tragus, conch, daith,
-                                rook e outras possibilidades
-                                para seu projeto.
-
-                            </p>
-
-
-                            <a
-                                href="#"
-                                data-v8="contact.whatsapp"
-                                class="service-link"
-                            >
-
-                                Conhecer opções
-
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="M5 12h13M13 6l6 6-6 6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-
-                            </a>
-
-                        </div>
+                        <p>
+                            Hélix, tragus, conch, daith,
+                            rook e outras possibilidades.
+                        </p>
 
                     </article>
 
 
+                    <article class="service">
+                        <div class="service-media" aria-label="Espaço para foto de Joias"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 7 7-7 11L5 10l7-7Z"/><path d="m5 10 7 3 7-3M12 3v10"/></svg><span>Foto do serviço</span></div>
 
-                    <article class="service-card">
+                        <h3>
+                            Joias
+                        </h3>
 
-                        <div class="service-image">
-
-                            <img
-                                src="assets/servico-joias.webp"
-                                alt="Joias para furo humanizado"
-                                loading="lazy"
-                            >
-
-                            <span class="service-label">
-                                Joias
-                            </span>
-
-                        </div>
-
-
-                        <div class="service-content">
-
-                            <span class="service-category">
-                                Joias
-                            </span>
-
-
-                            <h3>
-                                Joias
-                            </h3>
-
-
-                            <p>
-
-                                Diferentes estilos para
-                                complementar seu projeto
-                                de orelha.
-
-                            </p>
-
-
-                            <a
-                                href="#joias"
-                                class="service-link"
-                            >
-
-                                Ver possibilidades
-
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="M5 12h13M13 6l6 6-6 6"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        stroke-width="1.5"
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                    />
-                                </svg>
-
-                            </a>
-
-                        </div>
+                        <p>
+                            Opções de joias para diferentes
+                            estilos e projetos de orelha.
+                        </p>
 
                     </article>
 
@@ -1188,7 +546,6 @@
             </div>
 
         </section>
-
 
 
         <!-- =====================================================
@@ -1197,191 +554,125 @@
 
         <section class="safety">
 
-            <div class="container safety-grid">
+            <div class="container">
 
 
-                <div class="safety-intro">
+                <div class="center-heading">
 
                     <span class="section-label">
-                        Segurança
+                        SEGURANÇA
                     </span>
 
-
                     <h2 class="section-title">
-
-                        Delicadeza não significa
-                        abrir mão da técnica.
-
+                        Técnica e cuidado
+                        em primeiro lugar.
                     </h2>
-
-
-                    <p>
-
-                        O cuidado começa na preparação e
-                        continua depois do procedimento.
-
-                    </p>
 
                 </div>
 
 
-
-                <div class="safety-content">
-
-
-                    <div class="safety-item">
-
-                        <span class="safety-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="m5 12 4 4L19 6"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-
-                        </span>
-
-                        <div>
-
-                            <h3>
-                                Biossegurança
-                            </h3>
-
-                            <p>
-
-                                Atenção às práticas de
-                                biossegurança e aos materiais
-                                utilizados durante o atendimento.
-
-                            </p>
-
-                        </div>
-
-                    </div>
+                <div class="safety-grid">
 
 
+                    <article class="safety-card">
 
-                    <div class="safety-item">
+                        <h3>
+                            Biossegurança
+                        </h3>
 
-                        <span class="safety-icon">
+                        <p>
+                            O atendimento é realizado com
+                            atenção às práticas de biossegurança
+                            e aos materiais utilizados durante
+                            o procedimento.
+                        </p>
 
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
 
-                        </span>
+                        <div class="safety-points">
 
-                        <div>
+                            <div class="safety-point">
+                                <span class="check">✓</span>
 
-                            <h3>
-                                Materiais adequados
-                            </h3>
+                                <span>
+                                    Materiais estéreis e
+                                    descartáveis
+                                </span>
+                            </div>
 
-                            <p>
 
-                                Materiais estéreis e descartáveis
-                                conforme o procedimento.
+                            <div class="safety-point">
+                                <span class="check">✓</span>
 
-                            </p>
+                                <span>
+                                    Atendimento com cuidado
+                                    e organização
+                                </span>
+                            </div>
+
+
+                            <div class="safety-point">
+                                <span class="check">✓</span>
+
+                                <span>
+                                    Orientações de cuidados
+                                    pós-furo
+                                </span>
+                            </div>
 
                         </div>
 
-                    </div>
+                    </article>
 
 
+                    <article class="safety-card">
 
-                    <div class="safety-item">
+                        <h3>
+                            Titânio biocompatível
+                        </h3>
 
-                        <span class="safety-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                />
-                            </svg>
-
-                        </span>
-
-                        <div>
-
-                            <h3>
-                                Joias selecionadas
-                            </h3>
-
-                            <p>
-
-                                Entre as opções estão joias em
-                                titânio biocompatível e outras
-                                possibilidades.
-
-                            </p>
-
-                        </div>
-
-                    </div>
+                        <p>
+                            Entre as opções disponíveis estão
+                            joias em titânio biocompatível,
+                            além de outras possibilidades
+                            conforme o projeto.
+                        </p>
 
 
+                        <div class="safety-points">
 
-                    <div class="safety-item">
+                            <div class="safety-point">
+                                <span class="check">✓</span>
 
-                        <span class="safety-icon">
+                                <span>
+                                    <strong>
+                                        Titânio
+                                    </strong>
+                                    biocompatível
+                                </span>
+                            </div>
 
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M5 12h13M13 6l6 6-6 6"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.5"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
 
-                        </span>
+                            <div class="safety-point">
+                                <span class="check">✓</span>
 
-                        <div>
+                                <span>
+                                    Opções em zircônia
+                                </span>
+                            </div>
 
-                            <h3>
-                                Cuidados pós-furo
-                            </h3>
 
-                            <p>
+                            <div class="safety-point">
+                                <span class="check">✓</span>
 
-                                Orientações para acompanhar
-                                adequadamente o período após
-                                o procedimento.
-
-                            </p>
+                                <span>
+                                    Diferentes estilos
+                                    de joias
+                                </span>
+                            </div>
 
                         </div>
 
-                    </div>
+                    </article>
 
 
                 </div>
@@ -1389,7 +680,6 @@
             </div>
 
         </section>
-
 
 
         <!-- =====================================================
@@ -1407,23 +697,16 @@
                 <div class="center-heading">
 
                     <span class="section-label">
-                        Joias
+                        JOIAS
                     </span>
 
-
                     <h2 class="section-title">
-
-                        Pequenos detalhes,
-                        <em>grande diferença.</em>
-
+                        Delicadeza nos detalhes.
                     </h2>
 
-
                     <p class="section-description">
-
-                        Joias que acompanham o seu estilo
-                        e deixam cada projeto ainda mais especial.
-
+                        Algumas possibilidades para
+                        complementar seu projeto de orelha.
                     </p>
 
                 </div>
@@ -1431,112 +714,21 @@
 
                 <div class="jewelry-grid">
 
+                    <div class="jewel"><div class="jewel-photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 4 3 4 4-1-2 5 2 5-4-1-3 4-3-4-4 1 2-5-2-5 4 1 3-4Z"/></svg></div><span>Borboleta</span></div>
 
-                    <div class="jewel-card">
+                    <div class="jewel"><div class="jewel-photo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="6" r="3"/><circle cx="18" cy="12" r="3"/><circle cx="12" cy="18" r="3"/><circle cx="6" cy="12" r="3"/></svg></div><span>Flor</span></div>
 
-                        <div class="jewel-image">
+                    <div class="jewel"><div class="jewel-photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.4 5.8L20 11l-5.6 2.2L12 19l-2.4-5.8L4 11l5.6-2.2L12 3Z"/></svg></div><span>Estrela</span></div>
 
-                            <img
-                                src="assets/joia-borboleta.webp"
-                                alt="Joia modelo borboleta"
-                                loading="lazy"
-                            >
+                    <div class="jewel"><div class="jewel-photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.9c0 5.2-8.8 10.1-8.8 10.1S3.2 14.1 3.2 8.9A4.7 4.7 0 0 1 12 6.1a4.7 4.7 0 0 1 8.8 2.8Z"/></svg></div><span>Coração</span></div>
 
-                        </div>
-
-                        <span>
-                            Borboleta
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="jewel-card">
-
-                        <div class="jewel-image">
-
-                            <img
-                                src="assets/joia-flor.webp"
-                                alt="Joia modelo flor"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <span>
-                            Flor
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="jewel-card">
-
-                        <div class="jewel-image">
-
-                            <img
-                                src="assets/joia-estrela.webp"
-                                alt="Joia modelo estrela"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <span>
-                            Estrela
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="jewel-card">
-
-                        <div class="jewel-image">
-
-                            <img
-                                src="assets/joia-coracao.webp"
-                                alt="Joia modelo coração"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <span>
-                            Coração
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="jewel-card">
-
-                        <div class="jewel-image">
-
-                            <img
-                                src="assets/joia-ponto-de-luz.webp"
-                                alt="Joia modelo ponto de luz"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                        <span>
-                            Ponto de luz
-                        </span>
-
-                    </div>
-
+                    <div class="jewel"><div class="jewel-photo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div><span>Ponto de luz</span></div>
 
                 </div>
 
             </div>
 
         </section>
-
 
 
         <!-- =====================================================
@@ -1555,39 +747,36 @@
                 <div class="center-heading">
 
                     <span class="section-label">
-                        Galeria
+                        GALERIA
                     </span>
 
-
                     <h2 class="section-title">
-                        Momentos que ficam.
+                        Resultados e projetos.
                     </h2>
 
-
                     <p class="section-description">
-
-                        Conheça alguns dos trabalhos e
-                        atendimentos realizados por Elaine.
-
+                        Conheça os trabalhos realizados
+                        por Elaine.
                     </p>
 
                 </div>
 
 
-                <div
-                    class="v8-gallery"
-                    data-v8-gallery
-                ></div>
-
+                <div class="gallery-placeholder-grid" aria-label="Espaços reservados para fotos">
+                    <div class="gallery-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="m4.5 17 4.5-4 3.2 2.7 2.1-2 5.2 4.3"/></svg><span>Foto do atendimento</span></div>
+                    <div class="gallery-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="m4.5 17 4.5-4 3.2 2.7 2.1-2 5.2 4.3"/></svg><span>Foto do resultado</span></div>
+                    <div class="gallery-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="m4.5 17 4.5-4 3.2 2.7 2.1-2 5.2 4.3"/></svg><span>Foto das joias</span></div>
+                    <div class="gallery-placeholder"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9" r="1.5"/><path d="m4.5 17 4.5-4 3.2 2.7 2.1-2 5.2 4.3"/></svg><span>Foto do cuidado</span></div>
+                </div>
+                <div class="v8-gallery" data-v8-gallery></div>
 
             </div>
 
         </section>
 
 
-
         <!-- =====================================================
-             PROCESSO
+             COMO FUNCIONA
         ====================================================== -->
 
         <section class="process">
@@ -1598,12 +787,11 @@
                 <div class="center-heading">
 
                     <span class="section-label">
-                        Como funciona
+                        COMO FUNCIONA
                     </span>
 
-
                     <h2 class="section-title">
-                        Simples, tranquilo e acolhedor.
+                        Do agendamento ao cuidado.
                     </h2>
 
                 </div>
@@ -1614,166 +802,63 @@
 
                     <article class="process-item">
 
-                        <span class="process-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M7 3v4M17 3v4M4 9h16"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linecap="round"
-                                />
-
-                                <rect
-                                    x="4"
-                                    y="5"
-                                    width="16"
-                                    height="16"
-                                    rx="3"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                />
-
-                                <path
-                                    d="m8 14 2.2 2.2L16 10.5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-
-                        </span>
+                        <div class="process-number" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 9h16M8 13h3M8 16h5"/></svg></div>
 
                         <h3>
                             Agendamento
                         </h3>
 
                         <p>
-
                             Entre em contato pelo WhatsApp
-                            e converse com Elaine sobre seu
-                            atendimento.
-
+                            para conversar sobre seu atendimento.
                         </p>
 
                     </article>
 
 
-
                     <article class="process-item">
 
-                        <span class="process-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M4 11.5 12 5l8 6.5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-
-                                <path
-                                    d="M6.5 10.5V19h11v-8.5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                />
-
-                            </svg>
-
-                        </span>
+                        <div class="process-number" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 10 8-6 8 6v9.5H4V10Z"/><path d="M9 19.5v-5h6v5"/></svg></div>
 
                         <h3>
                             Visita domiciliar
                         </h3>
 
                         <p>
-
                             O atendimento acontece no
                             conforto da sua casa.
-
                         </p>
 
                     </article>
 
 
-
                     <article class="process-item">
 
-                        <span class="process-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M12 4v16M8 8l4-4 4 4M8 16l4 4 4-4"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-
-                        </span>
+                        <div class="process-number" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 20 20 7l-3-3L4 17l3 3Z"/><path d="m14 5 5 5M4 20h5"/></svg></div>
 
                         <h3>
                             Procedimento
                         </h3>
 
                         <p>
-
-                            O procedimento é realizado
-                            com cuidado e atenção.
-
+                            O furo é realizado com
+                            cuidado e atenção.
                         </p>
 
                     </article>
 
 
-
                     <article class="process-item">
 
-                        <span class="process-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="m5 12 4 4L19 6"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-                            </svg>
-
-                        </span>
+                        <div class="process-number" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 19 6v5.5c0 4.5-3 7.6-7 9-4-1.4-7-4.5-7-9V6l7-2.5Z"/><path d="m9 12 2 2 4-4"/></svg></div>
 
                         <h3>
                             Pós-furo
                         </h3>
 
                         <p>
-
-                            Você recebe orientações para
-                            os cuidados após o procedimento.
-
+                            Você recebe orientações
+                            para os cuidados necessários.
                         </p>
 
                     </article>
@@ -1786,39 +871,32 @@
         </section>
 
 
-
         <!-- =====================================================
-             ATENDIMENTO
+             LOCALIZAÇÃO
+             CONTROLADA PELO V8 LOADER
         ====================================================== -->
 
         <section
-            id="atendimento"
+            id="localizacao"
             class="location"
         >
 
             <div class="container">
 
 
-                <div class="location-heading">
+                <div class="center-heading">
 
                     <span class="section-label">
-                        Atendimento domiciliar
+                        ATENDIMENTO
                     </span>
 
-
                     <h2 class="section-title">
-
-                        O cuidado vai
-                        até você.
-
+                        Atendimento onde você está.
                     </h2>
 
-
-                    <p>
-
+                    <p class="section-description">
                         Elaine realiza atendimento domiciliar
                         em Porto Alegre e Canoas.
-
                     </p>
 
                 </div>
@@ -1829,80 +907,57 @@
 
                     <div class="location-card">
 
-                        <div class="location-card-icon">
-
-                            <svg
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M4 11.5 12 5l8 6.5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                />
-
-                                <path
-                                    d="M6.5 10.5V19h11v-8.5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                />
-
-                                <path
-                                    d="M10 19v-5h4v5"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.4"
-                                />
-                            </svg>
-
-                        </div>
-
-
                         <h3>
-                            Porto Alegre e Canoas
+                            Atendimento domiciliar
                         </h3>
 
 
-                        <p data-v8="content.address">
+                        <p>
+                            O atendimento é realizado no
+                            conforto da sua casa.
+                        </p>
 
-                            Atendimento domiciliar em
+
+                        <p
+                            data-v8="content.address"
+                        >
                             Porto Alegre e Canoas.
-
                         </p>
 
 
                         <div class="cities">
 
-                            <span>
+                            <span class="city">
                                 Porto Alegre
                             </span>
 
-                            <span>
+                            <span class="city">
                                 Canoas
                             </span>
 
                         </div>
 
 
-                        <a
-                            href="#"
-                            data-v8="contact.whatsapp"
-                            class="button button-primary"
-                        >
-                            Agendar atendimento
-                        </a>
+                        <div style="margin-top:28px;">
+
+                            <a
+                                href="#"
+                                data-v8="contact.whatsapp"
+                                class="button button-primary"
+                            >
+                                Agendar atendimento
+                            </a>
+
+                        </div>
 
                     </div>
 
 
-
                     <div class="location-map">
 
-                        <div data-v8-maps-embed></div>
+                        <div
+                            data-v8-maps-embed
+                        ></div>
 
                     </div>
 
@@ -1914,15 +969,11 @@
         </section>
 
 
-
         <!-- =====================================================
              FAQ
         ====================================================== -->
 
-        <section
-            id="faq"
-            class="faq"
-        >
+        <section class="faq">
 
             <div class="container">
 
@@ -1930,9 +981,8 @@
                 <div class="center-heading">
 
                     <span class="section-label">
-                        Dúvidas
+                        DÚVIDAS
                     </span>
-
 
                     <h2 class="section-title">
                         Perguntas frequentes.
@@ -1951,16 +1001,13 @@
                         </summary>
 
                         <p>
-
                             A percepção pode variar de pessoa
                             para pessoa. A proposta do atendimento
                             humanizado é tornar a experiência
                             mais acolhedora e tranquila.
-
                         </p>
 
                     </details>
-
 
 
                     <details>
@@ -1970,15 +1017,12 @@
                         </summary>
 
                         <p>
-
                             A indicação depende da idade,
                             condições individuais e avaliação
                             adequada para cada atendimento.
-
                         </p>
 
                     </details>
-
 
 
                     <details>
@@ -1988,17 +1032,14 @@
                         </summary>
 
                         <p>
-
                             O titânio é utilizado em joias
                             corporais por suas características
                             de biocompatibilidade. A escolha
                             da joia deve considerar o procedimento
                             e a orientação profissional.
-
                         </p>
 
                     </details>
-
 
 
                     <details>
@@ -2008,15 +1049,12 @@
                         </summary>
 
                         <p>
-
                             Durante a cicatrização, é recomendado
                             seguir as orientações de cuidados
                             fornecidas após o procedimento.
-
                         </p>
 
                     </details>
-
 
 
                     <details>
@@ -2026,10 +1064,8 @@
                         </summary>
 
                         <p>
-
                             Sim. Elaine realiza atendimento
                             domiciliar em Porto Alegre e Canoas.
-
                         </p>
 
                     </details>
@@ -2040,7 +1076,6 @@
             </div>
 
         </section>
-
 
 
         <!-- =====================================================
@@ -2051,45 +1086,15 @@
 
             <div class="container">
 
-
-                <span class="final-cta-symbol">
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path
-                            d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.4A4 4 0 0 1 19 10c0 5.7-7 10-7 10Z"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.4"
-                        />
-                    </svg>
-
-                </span>
-
-
-                <span class="section-label">
-                    Vamos conversar?
-                </span>
-
-
                 <h2>
-
                     Seu momento merece
-                    <em>
-                        carinho.
-                    </em>
-
+                    ser cuidado com carinho.
                 </h2>
 
 
                 <p>
-
                     Agende seu atendimento com Elaine Maidana
-                    e viva uma experiência de Furo Humanizado
-                    pensada para você.
-
+                    e conheça a experiência do Furo Humanizado.
                 </p>
 
 
@@ -2098,22 +1103,7 @@
                     data-v8="contact.whatsapp"
                     class="button button-primary"
                 >
-
-                    <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path
-                            d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="1.5"
-                            stroke-linejoin="round"
-                        />
-                    </svg>
-
                     Agendar pelo WhatsApp
-
                 </a>
 
             </div>
@@ -2124,7 +1114,6 @@
     </main>
 
 
-
     <!-- =========================================================
          FOOTER
     ========================================================== -->
@@ -2133,34 +1122,10 @@
 
         <div class="container footer-content">
 
-
-            <div class="footer-brand">
-
-                <span class="footer-mark">
-                    E
-                </span>
-
-                <div>
-
-                    <strong>
-                        Elaine Maidana
-                    </strong>
-
-                    <span>
-                        Furo Humanizado
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            <div class="footer-copy">
-
+            <div>
                 ©
                 <span id="year"></span>
-                Elaine Maidana
-
+                Elaine Maidana — Furo Humanizado
             </div>
 
 
@@ -2168,922 +1133,72 @@
                 href="#"
                 data-v8="social.instagram"
                 class="footer-instagram"
-                aria-label="Instagram de Elaine Maidana"
             >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <rect
-                        x="3.5"
-                        y="3.5"
-                        width="17"
-                        height="17"
-                        rx="5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="4"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                    />
-
-                    <circle
-                        cx="17.5"
-                        cy="6.7"
-                        r="1"
-                        fill="currentColor"
-                    />
-                </svg>
-
-                Instagram
-
+                @elainemaidanafurohumanizado
             </a>
-
 
         </div>
 
     </footer>
 
 
-
-    <!-- =========================================================
-         MENU FLUTUANTE
-    ========================================================== -->
-
-    <nav
-        class="floating-nav"
-        aria-label="Menu flutuante"
-    >
-
-
-        <!-- DESKTOP -->
-
-        <div class="floating-nav-desktop">
-
-
-            <a
-                href="#inicio"
-                class="floating-nav-link"
-                aria-label="Início"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M4 11.5 12 5l8 6.5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-
-                    <path
-                        d="M6.5 10.5V19h11v-8.5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-                </svg>
-
-                Início
-
-            </a>
-
-
-            <a
-                href="#sobre"
-                class="floating-nav-link"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <circle
-                        cx="12"
-                        cy="8"
-                        r="3"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-
-                    <path
-                        d="M5.5 19c.8-3.2 3.1-5 6.5-5s5.7 1.8 6.5 5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                    />
-                </svg>
-
-                Sobre
-
-            </a>
-
-
-            <a
-                href="#servicos"
-                class="floating-nav-link"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <rect
-                        x="4"
-                        y="5"
-                        width="16"
-                        height="14"
-                        rx="3"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-
-                    <path
-                        d="M8 9h8M8 13h5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                    />
-                </svg>
-
-                Serviços
-
-            </a>
-
-
-            <a
-                href="#joias"
-                class="floating-nav-link"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M8 4h8l3 4-7 12L5 8l3-4Z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linejoin="round"
-                    />
-
-                    <path
-                        d="M5 8h14M8 4l4 4 4-4"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-
-                Joias
-
-            </a>
-
-
-            <a
-                href="#galeria"
-                class="floating-nav-link"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <rect
-                        x="3.5"
-                        y="5"
-                        width="17"
-                        height="14"
-                        rx="3"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-
-                    <circle
-                        cx="9"
-                        cy="10"
-                        r="1.5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.3"
-                    />
-
-                    <path
-                        d="m5.5 17 4.2-4 3.1 2.5 2.2-2 3.5 3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-
-                Galeria
-
-            </a>
-
-
-            <a
-                href="#atendimento"
-                class="floating-nav-link"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M12 21s6-5.3 6-11a6 6 0 1 0-12 0c0 5.7 6 11 6 11Z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="10"
-                        r="2"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-                </svg>
-
-                Atendimento
-
-            </a>
-
-
-            <a
-                href="#"
-                data-v8="contact.whatsapp"
-                class="floating-nav-link floating-nav-whatsapp"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-
-                Agendar
-
-            </a>
-
-        </div>
-
-
-        <!-- MOBILE -->
-
-        <div class="floating-nav-mobile">
-
-            <button
-                type="button"
-                class="floating-menu-button"
-                id="floatingMenuButton"
-                aria-label="Abrir menu"
-                aria-expanded="false"
-                aria-controls="floatingMobileMenu"
-            >
-
-                <span class="hamburger">
-
-                    <span></span>
-                    <span></span>
-                    <span></span>
-
-                </span>
-
-                <span>
-                    Menu
-                </span>
-
-            </button>
-
-        </div>
-
-    </nav>
-
-
-
-    <!-- =========================================================
-         MENU MOBILE
-    ========================================================== -->
-
-    <div
-        class="mobile-menu-overlay"
-        id="mobileMenuOverlay"
-        aria-hidden="true"
-    ></div>
-
-
-    <div
-        class="mobile-menu"
-        id="floatingMobileMenu"
-        aria-hidden="true"
-    >
-
-
-        <div class="mobile-menu-header">
-
-
-            <div class="mobile-menu-brand">
-
-                <span class="mobile-menu-mark">
-                    E
-                </span>
-
-
-                <div>
-
-                    <strong>
-                        Elaine Maidana
-                    </strong>
-
-                    <small>
-                        Furo Humanizado
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <button
-                type="button"
-                class="mobile-menu-close"
-                id="floatingMenuClose"
-                aria-label="Fechar menu"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-
-        <div class="mobile-menu-links">
-
-
-            <a href="#inicio">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M4 11.5 12 5l8 6.5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-
-                    <path
-                        d="M6.5 10.5V19h11v-8.5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-                </svg>
-
-                Início
-
-            </a>
-
-
-            <a href="#sobre">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <circle
-                        cx="12"
-                        cy="8"
-                        r="3"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-
-                    <path
-                        d="M5.5 19c.8-3.2 3.1-5 6.5-5s5.7 1.8 6.5 5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                    />
-                </svg>
-
-                Sobre a Elaine
-
-            </a>
-
-
-            <a href="#servicos">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <rect
-                        x="4"
-                        y="5"
-                        width="16"
-                        height="14"
-                        rx="3"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-
-                    <path
-                        d="M8 9h8M8 13h5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                    />
-                </svg>
-
-                Serviços
-
-            </a>
-
-
-            <a href="#joias">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M8 4h8l3 4-7 12L5 8l3-4Z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linejoin="round"
-                    />
-
-                    <path
-                        d="M5 8h14M8 4l4 4 4-4"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-                </svg>
-
-                Joias
-
-            </a>
-
-
-            <a href="#galeria">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <rect
-                        x="3.5"
-                        y="5"
-                        width="17"
-                        height="14"
-                        rx="3"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-
-                    <circle
-                        cx="9"
-                        cy="10"
-                        r="1.5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.3"
-                    />
-
-                    <path
-                        d="m5.5 17 4.2-4 3.1 2.5 2.2-2 3.5 3.5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-
-                Galeria
-
-            </a>
-
-
-            <a href="#atendimento">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M12 21s6-5.3 6-11a6 6 0 1 0-12 0c0 5.7 6 11 6 11Z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="10"
-                        r="2"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-                </svg>
-
-                Atendimento
-
-            </a>
-
-
-            <a href="#faq">
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="8.5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                    />
-
-                    <path
-                        d="M9.7 9.2a2.4 2.4 0 1 1 3.9 1.9c-1.1.8-1.6 1.1-1.6 2.3"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.4"
-                        stroke-linecap="round"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="16.5"
-                        r=".8"
-                        fill="currentColor"
-                    />
-                </svg>
-
-                Perguntas frequentes
-
-            </a>
-
-
-        </div>
-
-
-
-        <div class="mobile-menu-footer">
-
-
-            <a
-                href="#"
-                data-v8="social.instagram"
-                class="mobile-menu-instagram"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <rect
-                        x="3.5"
-                        y="3.5"
-                        width="17"
-                        height="17"
-                        rx="5"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="4"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                    />
-
-                    <circle
-                        cx="17.5"
-                        cy="6.7"
-                        r="1"
-                        fill="currentColor"
-                    />
-                </svg>
-
-                Instagram
-
-            </a>
-
-
-            <a
-                href="#"
-                data-v8="contact.whatsapp"
-                class="mobile-menu-booking"
-            >
-
-                <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.5"
-                        stroke-linejoin="round"
-                    />
-                </svg>
-
-                Agendar pelo WhatsApp
-
-            </a>
-
-
-        </div>
-
-    </div>
-
-
-
     <!-- =========================================================
          WHATSAPP FIXO
-         CONTROLADO PELO V8 LOADER
+         O V8 LOADER DEFINE O LINK
     ========================================================== -->
 
     <a
         href="#"
         data-v8="contact.whatsapp"
         class="whatsapp-fixed"
-        aria-label="Agendar atendimento pelo WhatsApp"
-        title="Agendar atendimento pelo WhatsApp"
+        aria-label="Agendar pelo WhatsApp"
+        title="Agendar pelo WhatsApp"
     >
-
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-        >
-            <path
-                d="M20 11.5a8 8 0 0 1-11.7 7.1L4 20l1.4-4.1A8 8 0 1 1 20 11.5Z"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linejoin="round"
-            />
-
-            <path
-                d="M9 8.8c.2-.3.4-.3.7-.2l1.2.6c.2.1.3.3.2.6l-.5.9c.6 1.1 1.4 1.8 2.5 2.3l.8-.5c.2-.1.5-.1.6.1l.7 1.1c.2.3.1.5-.1.7-.5.5-1.1.7-1.8.5-2.5-.7-4.5-2.7-5.4-4.9-.3-.7-.1-1.2.3-1.2.3 0 .6 0 .8-.1Z"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.3"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-            />
-
-        </svg>
-
+        ✆
     </a>
 
 
+    <script>
+        (function () {
+            const header = document.querySelector('.site-header');
+            const toggle = document.querySelector('.menu-toggle');
+            const menu = document.querySelector('.nav-links');
+            const backdrop = document.querySelector('.menu-backdrop');
+
+            if (!header || !toggle || !menu || !backdrop) return;
+
+            const closeMenu = () => {
+                header.classList.remove('menu-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-label', 'Abrir menu');
+            };
+
+            toggle.addEventListener('click', () => {
+                const open = !header.classList.contains('menu-open');
+                header.classList.toggle('menu-open', open);
+                toggle.setAttribute('aria-expanded', String(open));
+                toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+            });
+
+            backdrop.addEventListener('click', closeMenu);
+            menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1000) closeMenu();
+            });
+        })();
+    </script>
+
 
     <!-- =========================================================
-         JAVASCRIPT DO MENU
+         ANO
     ========================================================== -->
 
     <script>
 
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
-
-                const menuButton =
-                    document.getElementById(
-                        "floatingMenuButton"
-                    );
-
-                const menuClose =
-                    document.getElementById(
-                        "floatingMenuClose"
-                    );
-
-                const mobileMenu =
-                    document.getElementById(
-                        "floatingMobileMenu"
-                    );
-
-                const overlay =
-                    document.getElementById(
-                        "mobileMenuOverlay"
-                    );
-
-                const menuLinks =
-                    document.querySelectorAll(
-                        ".mobile-menu-links a"
-                    );
-
-
-                function openMenu() {
-
-                    menuButton.classList.add("active");
-
-                    mobileMenu.classList.add("active");
-
-                    overlay.classList.add("active");
-
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "true"
-                    );
-
-                    mobileMenu.setAttribute(
-                        "aria-hidden",
-                        "false"
-                    );
-
-                    overlay.setAttribute(
-                        "aria-hidden",
-                        "false"
-                    );
-
-                    document.body.style.overflow =
-                        "hidden";
-
-                }
-
-
-                function closeMenu() {
-
-                    menuButton.classList.remove(
-                        "active"
-                    );
-
-                    mobileMenu.classList.remove(
-                        "active"
-                    );
-
-                    overlay.classList.remove(
-                        "active"
-                    );
-
-
-                    menuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    mobileMenu.setAttribute(
-                        "aria-hidden",
-                        "true"
-                    );
-
-                    overlay.setAttribute(
-                        "aria-hidden",
-                        "true"
-                    );
-
-                    document.body.style.overflow =
-                        "";
-
-                }
-
-
-                if (menuButton) {
-
-                    menuButton.addEventListener(
-                        "click",
-                        function () {
-
-                            if (
-                                mobileMenu.classList.contains(
-                                    "active"
-                                )
-                            ) {
-
-                                closeMenu();
-
-                            } else {
-
-                                openMenu();
-
-                            }
-
-                        }
-                    );
-
-                }
-
-
-                if (menuClose) {
-
-                    menuClose.addEventListener(
-                        "click",
-                        closeMenu
-                    );
-
-                }
-
-
-                if (overlay) {
-
-                    overlay.addEventListener(
-                        "click",
-                        closeMenu
-                    );
-
-                }
-
-
-                menuLinks.forEach(
-                    function (link) {
-
-                        link.addEventListener(
-                            "click",
-                            closeMenu
-                        );
-
-                    }
-                );
-
-
-                document.addEventListener(
-                    "keydown",
-                    function (event) {
-
-                        if (
-                            event.key === "Escape"
-                        ) {
-
-                            closeMenu();
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* ANO AUTOMÁTICO */
-
-        const yearElement =
-            document.getElementById("year");
-
-        if (yearElement) {
-
-            yearElement.textContent =
-                new Date().getFullYear();
-
-        }
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
 
     </script>
-
 
 
     <!-- =========================================================
@@ -3095,7 +1210,6 @@
         src="js/v8-loader.js"
         data-project-id="61d5d01f-b017-4f84-8a15-4d94e7dbbd89">
     </script>
-
 
 </body>
 
