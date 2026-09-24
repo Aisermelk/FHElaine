@@ -152,40 +152,53 @@ section {
     align-items: center;
     gap: 9px;
     margin-bottom: 12px;
+
     color: var(--rose-600);
+
     font-size: 11px;
     font-weight: 800;
     letter-spacing: .18em;
     line-height: 1.2;
+
     text-transform: uppercase;
 }
 
 .section-label::before {
     content: "";
+
     width: 22px;
     height: 1px;
+
     background: var(--rose-300);
 }
 
 .section-title {
     color: var(--ink);
+
     font-family: Georgia, "Times New Roman", serif;
+
     font-size: clamp(34px, 7vw, 54px);
     font-weight: 500;
+
     letter-spacing: -.035em;
     line-height: 1.08;
 }
 
 .section-description {
     max-width: 680px;
+
     margin-top: 15px;
+
     color: var(--muted);
+
     font-size: 16px;
 }
 
 .center-heading {
     max-width: 720px;
+
     margin: 0 auto 40px;
+
     text-align: center;
 }
 
@@ -204,15 +217,19 @@ section {
 
 .site-header {
     position: fixed;
+
     top: 16px;
     left: 0;
     right: 0;
+
     z-index: 100;
+
     pointer-events: none;
 }
 
 .nav {
     position: relative;
+
     min-height: 64px;
 
     display: flex;
@@ -220,6 +237,7 @@ section {
     justify-content: space-between;
 
     gap: 18px;
+
     padding: 8px 10px 8px 16px;
 
     border: 1px solid rgba(255,255,255,.72);
@@ -238,19 +256,22 @@ section {
 
 
 /* =========================================================
-   LOGO / MARCA
+   MARCA
 ========================================================= */
 
 .brand {
     display: inline-flex;
     align-items: center;
+
     gap: 10px;
+
     min-width: 0;
 }
 
 .brand-mark {
     width: 42px;
     height: 42px;
+
     flex: 0 0 42px;
 
     display: grid;
@@ -260,6 +281,7 @@ section {
     border-radius: 50%;
 
     background: rgba(255,255,255,.82);
+
     color: var(--rose-600);
 
     font-family: Georgia, serif;
@@ -274,19 +296,23 @@ section {
     color: var(--ink);
 
     font-family: Georgia, serif;
+
     font-size: 16px;
     font-weight: 600;
+
     line-height: 1.15;
 }
 
 .brand-subtitle {
     display: block;
+
     margin-top: 3px;
 
     color: var(--rose-600);
 
     font-size: 8px;
     font-weight: 800;
+
     letter-spacing: .13em;
     line-height: 1.2;
 
@@ -307,6 +333,7 @@ section {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
     gap: 7px;
 }
 
@@ -314,11 +341,14 @@ section {
 .nav-instagram svg {
     width: 17px;
     height: 17px;
+
     flex: 0 0 17px;
 
     fill: none;
+
     stroke: currentColor;
     stroke-width: 1.7;
+
     stroke-linecap: round;
     stroke-linejoin: round;
 }
@@ -336,16 +366,19 @@ section {
 .menu-toggle {
     width: 44px;
     height: 44px;
+
     flex: 0 0 44px;
 
     display: grid;
     place-content: center;
+
     gap: 5px;
 
     border: 1px solid var(--rose-200);
     border-radius: 50%;
 
     background: rgba(255,255,255,.82);
+
     color: var(--rose-600);
 
     cursor: pointer;
@@ -366,7 +399,9 @@ section {
 
 .menu-backdrop {
     position: fixed;
+
     inset: 0;
+
     z-index: -1;
 
     display: none;
@@ -401,7 +436,7 @@ section {
 
 /* =========================================================
    HERO
-   BANNER FICA NO FUNDO INTEIRO
+   BANNER COMO FUNDO INTEIRO
 ========================================================= */
 
 .hero {
@@ -418,52 +453,62 @@ section {
 
     background-color: var(--rose-100);
 
+    /*
+       A FOTO FICA ATRÁS DE TODO O HERO
+    */
     background-image:
         url("../assets/hero-banner.webp");
 
     background-repeat: no-repeat;
+
     background-size: cover;
-    background-position: center 38%;
+
+    background-position:
+        center center;
 }
 
 
-/* Overlay para leitura do texto */
+/* =========================================================
+   HERO — CAMADA SOBRE A FOTO
+========================================================= */
 
 .hero::before {
     content: "";
 
     position: absolute;
+
     inset: 0;
+
+    z-index: 0;
 
     background:
         linear-gradient(
             90deg,
             rgba(255,250,251,.90) 0%,
-            rgba(255,250,251,.72) 32%,
-            rgba(255,250,251,.20) 65%,
-            rgba(255,250,251,.10) 100%
-        ),
-        linear-gradient(
-            180deg,
-            rgba(255,255,255,.32) 0%,
-            rgba(255,255,255,.06) 48%,
-            rgba(255,248,250,.52) 100%
+            rgba(255,250,251,.72) 28%,
+            rgba(255,250,251,.38) 50%,
+            rgba(255,250,251,.12) 72%,
+            rgba(255,250,251,0) 100%
         );
 
     pointer-events: none;
-    z-index: 0;
 }
 
 
-/* Acabamento inferior */
+/* =========================================================
+   ACABAMENTO INFERIOR
+========================================================= */
 
 .hero::after {
     content: "";
 
     position: absolute;
+
     inset: auto 0 0;
 
     height: 150px;
+
+    z-index: 1;
 
     background:
         linear-gradient(
@@ -473,26 +518,33 @@ section {
         );
 
     pointer-events: none;
-    z-index: 0;
 }
 
 
 /* =========================================================
    HERO GRID
+   TEXTO FICA POR CIMA DA IMAGEM
 ========================================================= */
 
 .hero-grid {
     position: relative;
+
     z-index: 2;
 
     width: 100%;
 
     display: grid;
+
     place-items: center;
 }
 
 .hero-content {
+    position: relative;
+
+    z-index: 3;
+
     max-width: 820px;
+
     margin-inline: auto;
 
     text-align: center;
@@ -505,6 +557,7 @@ section {
 
 .hero-badge {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -519,6 +572,7 @@ section {
 
     font-size: 11px;
     font-weight: 800;
+
     letter-spacing: .11em;
 
     text-transform: uppercase;
@@ -532,8 +586,10 @@ section {
     height: 16px;
 
     fill: none;
+
     stroke: currentColor;
     stroke-width: 1.6;
+
     stroke-linecap: round;
     stroke-linejoin: round;
 }
@@ -548,12 +604,18 @@ section {
 
     color: var(--ink);
 
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 
-    font-size: clamp(45px, 8vw, 78px);
+    font-size:
+        clamp(45px, 8vw, 78px);
+
     font-weight: 500;
 
     letter-spacing: -.055em;
+
     line-height: .98;
 
     text-shadow:
@@ -595,7 +657,9 @@ section {
 
 .hero-actions {
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
 
     gap: 11px;
@@ -607,6 +671,7 @@ section {
     min-height: 50px;
 
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -616,6 +681,7 @@ section {
 
     font-size: 14px;
     font-weight: 800;
+
     letter-spacing: .01em;
 
     transition:
@@ -630,10 +696,11 @@ section {
 
 .button-primary {
     background: var(--rose-500);
+
     color: var(--white);
 
     box-shadow:
-        0 12px 26px rgba(201, 135, 156, .24);
+        0 12px 26px rgba(201,135,156,.24);
 }
 
 .button-primary:hover {
@@ -699,6 +766,7 @@ section {
 
 .cards {
     gap: 14px;
+
     grid-template-columns: 1fr;
 }
 
@@ -706,6 +774,7 @@ section {
     padding: 24px;
 
     border: 1px solid var(--line);
+
     border-radius: var(--radius-lg);
 
     background: rgba(255,255,255,.88);
@@ -719,6 +788,7 @@ section {
 
 .card:hover {
     transform: translateY(-4px);
+
     box-shadow: var(--shadow-card);
 }
 
@@ -732,6 +802,7 @@ section {
     border-radius: 14px;
 
     background: var(--rose-100);
+
     color: var(--rose-600);
 
     font-size: 17px;
@@ -747,8 +818,10 @@ section {
     height: 25px;
 
     fill: none;
+
     stroke: currentColor;
     stroke-width: 1.55;
+
     stroke-linecap: round;
     stroke-linejoin: round;
 }
@@ -766,6 +839,7 @@ section {
 
     font-size: 22px;
     font-weight: 600;
+
     line-height: 1.15;
 }
 
@@ -806,6 +880,7 @@ section {
 
 .about-photo {
     position: absolute;
+
     inset: 0;
 
     min-height: 100%;
@@ -825,6 +900,7 @@ section {
     padding: 20px 22px;
 
     border: 1px solid var(--rose-200);
+
     border-radius: 24px;
 
     background: rgba(255,255,255,.86);
@@ -847,6 +923,7 @@ section {
     place-items: center;
 
     border: 1px solid var(--rose-200);
+
     border-radius: 50%;
 
     background: var(--white);
@@ -885,6 +962,7 @@ section {
 
 .about-list {
     display: grid;
+
     gap: 12px;
 
     margin-top: 24px;
@@ -914,6 +992,7 @@ section {
     border-radius: 50%;
 
     background: var(--rose-100);
+
     color: var(--rose-600);
 
     font-size: 12px;
@@ -927,6 +1006,7 @@ section {
 
 .service-grid {
     grid-template-columns: 1fr;
+
     gap: 12px;
 }
 
@@ -936,6 +1016,7 @@ section {
     padding: 0 0 24px;
 
     border: 1px solid var(--rose-200);
+
     border-radius: var(--radius-lg);
 
     background: rgba(255,255,255,.78);
@@ -955,7 +1036,9 @@ section {
     min-height: 185px;
 
     display: grid;
+
     place-items: center;
+
     align-content: center;
 
     gap: 9px;
@@ -965,7 +1048,9 @@ section {
     overflow: hidden;
 
     border: 1px solid var(--rose-200);
-    border-radius: 22px 22px 14px 14px;
+
+    border-radius:
+        22px 22px 14px 14px;
 
     background:
         linear-gradient(
@@ -992,6 +1077,7 @@ section {
 
     font-size: 11px;
     font-weight: 800;
+
     letter-spacing: .08em;
 
     text-transform: uppercase;
@@ -1014,6 +1100,7 @@ section {
 
 .safety-grid {
     grid-template-columns: 1fr;
+
     gap: 16px;
 }
 
@@ -1021,6 +1108,7 @@ section {
     padding: 27px;
 
     border: 1px solid var(--line);
+
     border-radius: var(--radius-lg);
 
     background: var(--white);
@@ -1030,6 +1118,7 @@ section {
 
 .safety-points {
     display: grid;
+
     gap: 11px;
 
     margin-top: 20px;
@@ -1060,7 +1149,9 @@ section {
 ========================================================= */
 
 .jewelry-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
     gap: 10px;
 }
 
@@ -1074,6 +1165,7 @@ section {
     overflow: hidden;
 
     border: 1px solid var(--rose-200);
+
     border-radius: 20px;
 
     background: var(--white);
@@ -1083,12 +1175,15 @@ section {
     min-height: 150px;
 
     display: grid;
+
     place-items: center;
 
-    overflow: hidden;
+    color: var(--rose-500);
 
     border: 0;
-    border-radius: 20px 20px 0 0;
+
+    border-radius:
+        20px 20px 0 0;
 
     background:
         linear-gradient(
@@ -1096,8 +1191,6 @@ section {
             #fff,
             var(--rose-100)
         );
-
-    color: var(--rose-500);
 }
 
 .jewel-photo svg {
@@ -1118,11 +1211,13 @@ section {
 
 
 /* =========================================================
-   ESPAÇOS DE FOTOS
+   ESPAÇOS PARA FOTOS
 ========================================================= */
 
 .photo-placeholder,
-.gallery-placeholder {
+.service-media,
+.gallery-placeholder,
+.jewel-photo {
     overflow: hidden;
 
     border: 1px solid var(--rose-200);
@@ -1144,10 +1239,13 @@ section {
 
 .photo-placeholder {
     position: absolute;
+
     inset: 0;
 
     display: grid;
+
     place-items: center;
+
     align-content: center;
 
     gap: 9px;
@@ -1166,6 +1264,7 @@ section {
 
     font-size: 11px;
     font-weight: 800;
+
     letter-spacing: .08em;
 
     text-transform: uppercase;
@@ -1216,7 +1315,9 @@ section {
     min-height: 190px;
 
     display: grid;
+
     place-items: center;
+
     align-content: center;
 
     gap: 9px;
@@ -1240,6 +1341,7 @@ section {
 
 .process-grid {
     grid-template-columns: 1fr;
+
     gap: 12px;
 }
 
@@ -1254,11 +1356,13 @@ section {
     height: 44px;
 
     display: grid;
+
     place-items: center;
 
     border-radius: 50%;
 
     background: var(--rose-100);
+
     color: var(--rose-600);
 
     font-size: 0;
@@ -1276,6 +1380,7 @@ section {
 
 .location-grid {
     display: grid;
+
     gap: 15px;
 }
 
@@ -1283,6 +1388,7 @@ section {
     padding: 27px;
 
     border: 1px solid var(--rose-200);
+
     border-radius: var(--radius-lg);
 
     background: var(--white);
@@ -1294,11 +1400,13 @@ section {
     margin-top: 16px;
 
     font-weight: 700;
+
     color: var(--ink-soft);
 }
 
 .cities {
     display: flex;
+
     flex-wrap: wrap;
 
     gap: 7px;
@@ -1312,6 +1420,7 @@ section {
     border-radius: var(--radius-pill);
 
     background: var(--rose-100);
+
     color: var(--rose-600);
 
     font-size: 12px;
@@ -1324,6 +1433,7 @@ section {
     overflow: hidden;
 
     border: 1px solid var(--line);
+
     border-radius: var(--radius-lg);
 
     background: var(--rose-100);
@@ -1334,6 +1444,7 @@ section {
     width: 100%;
 
     min-height: 280px;
+
     height: 100%;
 
     border: 0;
@@ -1413,7 +1524,7 @@ section {
 
 
 /* =========================================================
-   CTA FINAL
+   CTA
 ========================================================= */
 
 .final-cta {
@@ -1438,10 +1549,17 @@ section {
 
     font-family: Georgia, serif;
 
-    font-size: clamp(35px, 7vw, 58px);
+    font-size:
+        clamp(
+            35px,
+            7vw,
+            58px
+        );
+
     font-weight: 500;
 
     letter-spacing: -.04em;
+
     line-height: 1.05;
 }
 
@@ -1490,8 +1608,7 @@ footer {
 
 
 /* =========================================================
-   WHATSAPP FLUTUANTE
-   SOMENTE ÍCONE
+   WHATSAPP
 ========================================================= */
 
 .whatsapp-fixed {
@@ -1506,9 +1623,11 @@ footer {
     height: 54px;
 
     display: grid;
+
     place-items: center;
 
     border: 3px solid rgba(255,255,255,.92);
+
     border-radius: 50%;
 
     background: var(--whatsapp);
@@ -1524,7 +1643,8 @@ footer {
 }
 
 .whatsapp-fixed:hover {
-    transform: translateY(-3px) scale(1.04);
+    transform:
+        translateY(-3px) scale(1.04);
 
     box-shadow:
         0 16px 34px rgba(37,211,102,.30);
@@ -1546,7 +1666,7 @@ footer {
 
 
 /* =========================================================
-   MOBILE MENU
+   MOBILE
 ========================================================= */
 
 @media (max-width: 999px) {
@@ -1557,10 +1677,11 @@ footer {
         top: 92px;
         left: 50%;
 
-        width: min(
-            calc(100% - 28px),
-            430px
-        );
+        width:
+            min(
+                calc(100% - 28px),
+                430px
+            );
 
         max-height:
             calc(100vh - 120px);
@@ -1582,7 +1703,8 @@ footer {
 
         padding: 14px;
 
-        border: 1px solid rgba(255,255,255,.86);
+        border:
+            1px solid rgba(255,255,255,.86);
 
         border-radius: 24px;
 
@@ -1619,12 +1741,8 @@ footer {
         background: var(--rose-50);
     }
 
-    /* Instagram NÃO aparece no header mobile */
-    .nav-instagram {
-        display: none !important;
-    }
 
-    .site-header.menu-open
+    /* Instagram NÃO aparece no celular */
     .nav-instagram {
         display: none !important;
     }
@@ -1632,12 +1750,22 @@ footer {
 
     /* =====================================================
        HERO MOBILE
+       BANNER ATRÁS DO TEXTO
     ===================================================== */
 
     .hero {
+        position: relative;
+
         min-height: 740px;
 
         padding: 145px 0 82px;
+
+        background-image:
+            url("../assets/hero-banner.webp");
+
+        background-repeat: no-repeat;
+
+        background-size: cover;
 
         background-position:
             60% center;
@@ -1655,6 +1783,10 @@ footer {
     }
 
     .hero-grid {
+        position: relative;
+
+        z-index: 2;
+
         width:
             min(
                 calc(100% - (var(--page-padding) * 2)),
@@ -1669,6 +1801,10 @@ footer {
     }
 
     .hero-content {
+        position: relative;
+
+        z-index: 3;
+
         max-width: 100%;
 
         margin-inline: auto;
@@ -1855,6 +1991,7 @@ footer {
         padding: 9px 16px;
 
         border: 1px solid var(--rose-200);
+
         border-radius: var(--radius-pill);
 
         color: var(--rose-600);
@@ -1873,26 +2010,18 @@ footer {
 
     /* =====================================================
        HERO DESKTOP
-       FOTO OCUPA TODO O FUNDO
-       TEXTO FICA SOBRE A FOTO
-       ESQUERDA = CONTEÚDO
-       DIREITA = VAZIO / FOTO
+       FOTO = FUNDO INTEIRO
+       TEXTO = NA FRENTE
     ===================================================== */
 
     .hero {
-        position: relative;
-
         min-height: 820px;
-
-        display: grid;
-        place-items: center;
-
-        overflow: hidden;
 
         padding: 164px 0 110px;
 
-        background-color: var(--rose-100);
-
+        /*
+           A imagem cobre TODO o HERO
+        */
         background-image:
             url("../assets/hero-banner.webp");
 
@@ -1900,37 +2029,37 @@ footer {
 
         background-size: cover;
 
+        /*
+           Ajuste da posição da fotografia.
+           A pessoa/foco da foto fica mais à direita,
+           deixando o texto respirar à esquerda.
+        */
         background-position:
             68% center;
     }
 
 
-    /* Overlay mais forte na esquerda,
-       preservando a foto na direita */
+    /* Overlay apenas para dar leitura ao texto */
 
     .hero::before {
-        content: "";
-
-        position: absolute;
-
-        inset: 0;
-
         background:
             linear-gradient(
                 90deg,
-                rgba(255,250,251,.97) 0%,
-                rgba(255,250,251,.91) 20%,
-                rgba(255,250,251,.70) 36%,
-                rgba(255,250,251,.35) 50%,
-                rgba(255,250,251,.10) 66%,
-                rgba(255,250,251,0) 82%
+                rgba(255,250,251,.94) 0%,
+                rgba(255,250,251,.84) 20%,
+                rgba(255,250,251,.60) 38%,
+                rgba(255,250,251,.28) 53%,
+                rgba(255,250,251,.08) 70%,
+                rgba(255,250,251,0) 100%
             );
-
-        pointer-events: none;
-
-        z-index: 0;
     }
 
+
+    /*
+       O GRID NÃO cria uma segunda imagem.
+       A segunda coluna simplesmente fica vazia.
+       A foto continua sendo o background do HERO.
+    */
 
     .hero-grid {
         position: relative;
@@ -1941,13 +2070,6 @@ footer {
 
         display: grid;
 
-        /*
-           ESQUERDA = 48%
-           DIREITA = 52%
-           A DIREITA FICA VAZIA.
-           O BACKGROUND DO HERO APARECE NELA.
-        */
-
         grid-template-columns:
             minmax(0, 48%)
             minmax(0, 52%);
@@ -1957,9 +2079,12 @@ footer {
         justify-items: stretch;
     }
 
-
     .hero-content {
         grid-column: 1;
+
+        position: relative;
+
+        z-index: 3;
 
         width: 100%;
 
@@ -2004,7 +2129,7 @@ footer {
 
 
     /* =====================================================
-       DEMAIS GRIDS DESKTOP
+       OUTROS GRIDS
     ===================================================== */
 
     .cards {
@@ -2134,16 +2259,16 @@ footer {
         flex-basis: 42px;
     }
 
-    .hero {
-        background-position:
-            60% center;
-    }
-
     .brand-name {
         font-size: 15px;
     }
 
     .brand-subtitle {
         font-size: 7px;
+    }
+
+    .hero {
+        background-position:
+            60% center;
     }
 }
