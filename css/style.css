@@ -1556,11 +1556,11 @@ footer {
     /* HERO MOBILE */
 
     .hero {
-        min-height: 740px;
-
-        padding: 145px 0 82px;
-
-        background-position: 58% center;
+       min-height: 740px;
+       
+       padding: 145px 0 82px;
+       
+       background-position: 15% center;
     }
 
     .hero::before {
