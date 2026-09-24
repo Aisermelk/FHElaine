@@ -250,7 +250,7 @@ section { padding: 78px 0; }
     overflow: hidden;
     padding: 150px 0 90px;
     background-color: var(--rose-100);
-    background-image: url("../assets/hero-banner.webp");
+    background-image: url("../assets/images/hero.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center 38%;
@@ -760,16 +760,16 @@ footer { padding: 25px 0; background: #fffafa; border-top: 1px solid var(--line)
 
     .hero-grid {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        align-items: center;
-        justify-items: stretch;
+        justify-items: start;
     }
 
-    .hero-content {
+        .hero-content {
         max-width: 560px;
-        margin: 0;
+        margin-left: 120px;
+        margin-right: auto;
         text-align: left;
     }
+}
 
     .hero-badge { justify-content: flex-start; }
 
@@ -1058,34 +1058,6 @@ footer { padding: 25px 0; background: #fffafa; border-top: 1px solid var(--line)
         margin-left: 0;
     }
 
-    .hero-grid {
-        grid-template-columns: minmax(0, 48%) minmax(0, 52%);
-        align-items: center;
-    }
-
-    .hero-content {
-        max-width: 560px;
-        margin-inline: auto;
-        text-align: center;
-    }
-
-    .hero-badge {
-        justify-content: center;
-    }
-
-    .hero-text {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-actions {
-        justify-content: center;
-    }
-
-    .hero-note {
-        text-align: center;
-    }
-
     .service-media {
         min-height: 210px;
     }
@@ -1104,6 +1076,10 @@ footer { padding: 25px 0; background: #fffafa; border-top: 1px solid var(--line)
     .nav-instagram {
         justify-content: center;
         text-align: center;
+    }
+
+    .nav-instagram {
+        display: none;
     }
 
     .site-header.menu-open .nav-links a svg {
