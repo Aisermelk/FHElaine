@@ -1485,7 +1485,7 @@ footer {
         position: fixed;
 
         top: 92px;
-        left: 50%;
+        right: 50%;
 
         width: min(
             calc(100% - 28px),
